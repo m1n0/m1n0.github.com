@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Just Some Geek: front-end</title>
+  <subtitle>Posts tagged with front-end</subtitle>
+  <id>http://justsomegeek.com</id>
+  <link href="http://justsomegeek.com"/>
+  <link href="http://justsomegeek.com/tag/front-end/feed.xml" rel="self"/>
+  <updated>2015-03-27T22:14:00+01:00</updated>
+  <author>
+    <name>m1n0</name>
+  </author>
+  <entry>
+    <title>How To Remove Extra Button Spacing/Padding in Firefox</title>
+    <link rel="alternate" href="http://justsomegeek.com/2015/03/20/how-to-remove-extra-button-spacing-padding-in-firefox/"/>
+    <id>http://justsomegeek.com/2015/03/20/how-to-remove-extra-button-spacing-padding-in-firefox/</id>
+    <published>2015-03-20T22:21:00+01:00</published>
+    <updated>2015-03-27T22:09:00+01:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> It usually is Internet Explorer that makes the life of a web developer hard, but this time I stumbled upon an issue
+when Mozilla Firefox added unexpected padding </summary>
+  </entry>
+</feed>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Just Some Geek</title>
-  <subtitle>Yet another geeky blog...</subtitle>
+  <title>Just Some Geek: dev</title>
+  <subtitle>Posts tagged with dev</subtitle>
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
-  <link href="http://justsomegeek.com/feed.xml" rel="self"/>
+  <link href="http://justsomegeek.com/tag/dev/feed.xml" rel="self"/>
   <updated>2015-03-27T22:14:00+01:00</updated>
   <author>
     <name>m1n0</name>

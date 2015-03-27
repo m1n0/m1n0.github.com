@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Just Some Geek: How To Remove Extra Button Spacing/Padding in Firefox</title>
-<meta content='It usually is Internet Explorer that makes the life of a web developer hard, but this time I stumbled upon an issue when Mozilla Firefox added unexpected' name='description'>
+<title>Just Some Geek: How to Keep Shell Connection</title>
+<meta content='It happens too often that I get disconnected from a shell connection after a while of inactivity with message Write failed: Broken pipe. To prevent this' name='description'>
 <meta charset='utf-8'>
 <meta content='width=device-width, initial-scale=1.0' name='viewport'>
 <meta content='IE=edge' http-equiv='X-UA-Compatible'>
@@ -22,26 +22,25 @@
 <main class='content' role='main'>
 <article class='post'>
 <header class='post-header'>
-<h1 class='post-title'>How To Remove Extra Button Spacing/Padding in Firefox</h1>
+<h1 class='post-title'>How to Keep Shell Connection</h1>
 <section class='post-meta'>
-<time class='post-date' datetime='2015-03-20'>
-20 March 2015
+<time class='post-date' datetime='2015-03-27'>
+27 March 2015
 </time>
-on <a href='/tag/dev/'>dev</a>, <a href='/tag/front-end/'>front-end</a>
+on <a href='/tag/dev/'>dev</a>
 </section>
 </header>
-<section class='post-content'><p>It usually is Internet Explorer that makes the life of a web developer hard, but this time I stumbled upon an issue
-when Mozilla Firefox added unexpected padding to my html buttons. After short research I found a simple solution to fix
-this odd behavior:</p>
+<section class='post-content'><p>It happens too often that I get disconnected from a shell connection after a while of inactivity with message <code>Write failed: Broken pipe</code>.
+To prevent this, simply put:</p>
 <div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4</pre></td><td class="code"><pre>button::-moz-focus-inner {
-    padding: 0;
-    border: 0
-}
+2</pre></td><td class="code"><pre>Host *
+    ServerAliveInterval 30
 </pre></td></tr></tbody></table>
 </div>
+
+<p>in your <code>~/.ssh/config</code> (OS X) or <code>/etc/ssh/ssh_config</code> (Linux) file.</p>
+
+<p>This will make sure that null packet will be sent every 30 seconds (you can edit the interval) to the server to keep the connection alive.</p>
 </section>
 <footer class='post-footer'>
 <figure class='author-image'>
@@ -71,13 +70,13 @@ m1n0 is a web dev passionate about technology, music and reading.
 </section>
 <section class='share'>
 <h4>Share this post</h4>
-<a class='icon-twitter' href='https://twitter.com/share?text=How To Remove Extra Button Spacing/Padding in Firefox&amp;amp;url=http://justsomegeek.com/2015/03/20/how-to-remove-extra-button-spacing-padding-in-firefox/' onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+<a class='icon-twitter' href='https://twitter.com/share?text=How to Keep Shell Connection&amp;amp;url=http://justsomegeek.com/2015/03/27/how-to-keep-shell-connection/' onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
 <span class='hidden'>Twitter</span>
 </a>
-<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://justsomegeek.com/2015/03/20/how-to-remove-extra-button-spacing-padding-in-firefox/' onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://justsomegeek.com/2015/03/27/how-to-keep-shell-connection/' onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
 <span class='hidden'>Facebook</span>
 </a>
-<a class='icon-google-plus' href='https://plus.google.com/share?url=http://justsomegeek.com/2015/03/20/how-to-remove-extra-button-spacing-padding-in-firefox/' onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://justsomegeek.com/2015/03/27/how-to-keep-shell-connection/' onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
 <span class='hidden'>Google+</span>
 </a>
 </section>
