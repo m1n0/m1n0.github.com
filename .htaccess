@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} !^justsomegeek.com$ [NC]
+RewriteRule ^(.*)$ http://justsomegeek.com/$1 [L,R=301]
