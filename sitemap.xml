@@ -2,49 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://justsomegeek.com/2015/03/20/how-to-remove-extra-button-spacing-padding-in-firefox/index.html</loc>
-    <lastmod>2015-03-29T23:44:38+02:00</lastmod>
+    <lastmod>2015-04-06T18:46:27+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://justsomegeek.com/2015/03/23/git-ignore-file-permissions-changes/index.html</loc>
-    <lastmod>2015-03-27T22:30:30+01:00</lastmod>
+    <loc>http://justsomegeek.com/2015/03/23/how-to-git-ignore-file-permissions-changes/index.html</loc>
+    <lastmod>2015-04-06T18:46:29+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/2015/03/27/how-to-keep-shell-connection/index.html</loc>
-    <lastmod>2015-03-29T23:44:49+02:00</lastmod>
+    <lastmod>2015-04-06T18:46:31+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://justsomegeek.com/2015/04/04/why-behavioural-testing/index.html</loc>
+    <lastmod>2015-04-06T20:15:08+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/index.html</loc>
-    <lastmod>2015-03-29T23:46:44+02:00</lastmod>
+    <lastmod>2015-04-06T20:15:36+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/index.html</loc>
-    <lastmod>2015-03-29T23:46:44+02:00</lastmod>
+    <lastmod>2015-04-06T20:15:36+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/author/m1n0/index.html</loc>
-    <lastmod>2015-03-29T23:46:44+02:00</lastmod>
+    <lastmod>2015-04-06T20:15:36+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/dev/index.html</loc>
-    <lastmod>2015-03-29T23:46:44+02:00</lastmod>
+    <lastmod>2015-04-06T20:15:36+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/front-end/index.html</loc>
-    <lastmod>2015-03-29T23:46:44+02:00</lastmod>
+    <lastmod>2015-04-06T20:15:36+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://justsomegeek.com/tag/how-to/index.html</loc>
+    <lastmod>2015-04-06T20:15:36+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://justsomegeek.com/tag/testing/index.html</loc>
+    <lastmod>2015-04-06T20:15:36+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

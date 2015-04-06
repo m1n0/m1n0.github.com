@@ -5,16 +5,31 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/feed.xml" rel="self"/>
-  <updated>2015-03-27T22:14:00+01:00</updated>
+  <updated>2015-04-04T11:02:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
   <entry>
-    <title>How to Keep Shell Connection</title>
+    <title>Why Behavioural Testing&amp;#63;</title>
+    <link rel="alternate" href="http://justsomegeek.com/2015/04/04/why-behavioural-testing/"/>
+    <id>http://justsomegeek.com/2015/04/04/why-behavioural-testing/</id>
+    <published>2015-04-04T11:02:00+02:00</published>
+    <updated>2015-04-06T20:15:08+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> There seems to be a lot of buzz around Behavioural testing in recent years. Here is a couple of thoughts from my side why could this be happening: 
+
+ 
+  Grey-box  
+ </summary>
+  </entry>
+  <entry>
+    <title>How-to&amp;#58; Keep Shell Connection</title>
     <link rel="alternate" href="http://justsomegeek.com/2015/03/27/how-to-keep-shell-connection/"/>
     <id>http://justsomegeek.com/2015/03/27/how-to-keep-shell-connection/</id>
     <published>2015-03-27T22:14:00+01:00</published>
-    <updated>2015-03-29T23:44:49+02:00</updated>
+    <updated>2015-04-06T18:46:31+02:00</updated>
     <author>
       <name>m1n0</name>
     </author>
@@ -22,22 +37,22 @@
 To prevent this, simply </summary>
   </entry>
   <entry>
-    <title>Git - Ignore File Permissions Changes</title>
-    <link rel="alternate" href="http://justsomegeek.com/2015/03/23/git-ignore-file-permissions-changes/"/>
-    <id>http://justsomegeek.com/2015/03/23/git-ignore-file-permissions-changes/</id>
+    <title>How-to&amp;#58; Git - Ignore File Permissions Changes</title>
+    <link rel="alternate" href="http://justsomegeek.com/2015/03/23/how-to-git-ignore-file-permissions-changes/"/>
+    <id>http://justsomegeek.com/2015/03/23/how-to-git-ignore-file-permissions-changes/</id>
     <published>2015-03-23T22:07:00+01:00</published>
-    <updated>2015-03-27T22:30:30+01:00</updated>
+    <updated>2015-04-06T18:46:29+02:00</updated>
     <author>
       <name>m1n0</name>
     </author>
-    <summary type="html"> It can get really annoying when git status reports changes in files which are not really changed, just some file permissions have been modified. In most cases, this </summary>
+    <summary type="html"> It can get really annoying when git status reports changes in files which are not really changed, just some file permissions have been modified. In most cases </summary>
   </entry>
   <entry>
-    <title>How To Remove Extra Button Spacing/Padding in Firefox</title>
+    <title>How-to&amp;#58; Remove Extra Button Spacing/Padding in Firefox</title>
     <link rel="alternate" href="http://justsomegeek.com/2015/03/20/how-to-remove-extra-button-spacing-padding-in-firefox/"/>
     <id>http://justsomegeek.com/2015/03/20/how-to-remove-extra-button-spacing-padding-in-firefox/</id>
     <published>2015-03-20T22:21:00+01:00</published>
-    <updated>2015-03-29T23:44:38+02:00</updated>
+    <updated>2015-04-06T18:46:27+02:00</updated>
     <author>
       <name>m1n0</name>
     </author>
