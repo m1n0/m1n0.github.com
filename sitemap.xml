@@ -20,49 +20,61 @@
   </url>
   <url>
     <loc>http://justsomegeek.com/2015/04/04/why-behavioural-testing/index.html</loc>
-    <lastmod>2015-04-06T20:15:08+02:00</lastmod>
+    <lastmod>2015-04-10T23:16:32+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://justsomegeek.com/2015/04/10/drupal-save-entity-field-without-saving-entity-itself/index.html</loc>
+    <lastmod>2015-04-18T17:27:39+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/index.html</loc>
-    <lastmod>2015-04-06T20:15:36+02:00</lastmod>
+    <lastmod>2015-04-18T18:39:48+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/index.html</loc>
-    <lastmod>2015-04-06T20:15:36+02:00</lastmod>
+    <lastmod>2015-04-18T18:39:48+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/author/m1n0/index.html</loc>
-    <lastmod>2015-04-06T20:15:36+02:00</lastmod>
+    <lastmod>2015-04-18T18:39:48+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/dev/index.html</loc>
-    <lastmod>2015-04-06T20:15:36+02:00</lastmod>
+    <lastmod>2015-04-18T18:39:48+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/front-end/index.html</loc>
-    <lastmod>2015-04-06T20:15:36+02:00</lastmod>
+    <lastmod>2015-04-18T18:39:48+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/how-to/index.html</loc>
-    <lastmod>2015-04-06T20:15:36+02:00</lastmod>
+    <lastmod>2015-04-18T18:39:48+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/testing/index.html</loc>
-    <lastmod>2015-04-06T20:15:36+02:00</lastmod>
+    <lastmod>2015-04-18T18:39:48+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://justsomegeek.com/tag/drupal/index.html</loc>
+    <lastmod>2015-04-18T18:39:48+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

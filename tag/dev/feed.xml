@@ -5,16 +5,27 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/dev/feed.xml" rel="self"/>
-  <updated>2015-04-04T11:02:00+02:00</updated>
+  <updated>2015-04-10T23:27:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Drupal&amp;#58; Save Entity Field Without Saving Entity Itself</title>
+    <link rel="alternate" href="http://justsomegeek.com/2015/04/10/drupal-save-entity-field-without-saving-entity-itself/"/>
+    <id>http://justsomegeek.com/2015/04/10/drupal-save-entity-field-without-saving-entity-itself/</id>
+    <published>2015-04-10T23:27:00+02:00</published>
+    <updated>2015-04-18T17:27:39+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Drupal provides API for saving entities such as node_save() or user_save(). Functions like this update the whole provided entity, using up a lot of resources </summary>
+  </entry>
   <entry>
     <title>Why Behavioural Testing&amp;#63;</title>
     <link rel="alternate" href="http://justsomegeek.com/2015/04/04/why-behavioural-testing/"/>
     <id>http://justsomegeek.com/2015/04/04/why-behavioural-testing/</id>
     <published>2015-04-04T11:02:00+02:00</published>
-    <updated>2015-04-06T20:15:08+02:00</updated>
+    <updated>2015-04-10T23:16:32+02:00</updated>
     <author>
       <name>m1n0</name>
     </author>
