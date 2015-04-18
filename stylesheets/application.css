@@ -2163,3 +2163,11 @@ pre {
   background: transparent;
   border-style: none;
   padding: initial; }
+
+/* line 11, /Applications/MAMP/htdocs/blog-source/source/stylesheets/application.css.scss */
+td.gutter {
+  display: none; }
+
+/* line 15, /Applications/MAMP/htdocs/blog-source/source/stylesheets/application.css.scss */
+.code pre {
+  white-space: pre-wrap; }
