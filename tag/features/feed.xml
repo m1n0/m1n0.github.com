@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Just Some Geek: drupal</title>
-  <subtitle>Posts tagged with drupal</subtitle>
+  <title>Just Some Geek: features</title>
+  <subtitle>Posts tagged with features</subtitle>
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
-  <link href="http://justsomegeek.com/tag/drupal/feed.xml" rel="self"/>
+  <link href="http://justsomegeek.com/tag/features/feed.xml" rel="self"/>
   <updated>2015-05-13T20:15:00+02:00</updated>
   <author>
     <name>m1n0</name>
@@ -19,16 +19,5 @@
       <name>m1n0</name>
     </author>
     <summary type="html"> Many sites and distributions built on Drupal make use of Features. It often happens that having a big number of features on a site makes the Manage Features </summary>
-  </entry>
-  <entry>
-    <title>Drupal&amp;#58; Save Entity Field Without Saving Entity Itself</title>
-    <link rel="alternate" href="http://justsomegeek.com/2015/04/10/drupal-save-entity-field-without-saving-entity-itself/"/>
-    <id>http://justsomegeek.com/2015/04/10/drupal-save-entity-field-without-saving-entity-itself/</id>
-    <published>2015-04-10T23:27:00+02:00</published>
-    <updated>2015-05-05T22:34:59+02:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> Drupal provides API for saving entities such as node_save() or user_save(). Functions like this update the whole provided entity, using up a lot of resources </summary>
   </entry>
 </feed>
