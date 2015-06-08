@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Just Some Geek: Drupal&#58; EntityMetadataWrapper auto-completing code</title>
+<meta content='Using entity_metadata_wrapper() from the Entity API module has a lot of advantages discussed all over the internet, but it has been bugging me for quite' name='description'>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='True' name='HandheldFriendly'>
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+<link href="/images/favicon.ico" rel="icon" type="image/ico" />
+<link href="/stylesheets/application.css" rel="stylesheet" type="text/css" />
+<link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
+</head>
+<body class='post-template'>
+<header class='main-header no-cover post-head'>
+<nav class='main-nav clearfix'>
+<a class='back-button icon-arrow-left' href='/'>Home</a>
+<a class='subscribe-button icon-feed' href='/feed.xml'>Subscribe</a>
+</nav>
+</header>
+<main class='content' role='main'>
+<article class='post'>
+<header class='post-header'>
+<h1 class='post-title'>Drupal&#58; EntityMetadataWrapper auto-completing code</h1>
+<section class='post-meta'>
+<time class='post-date' datetime='2015-06-08'>
+08 June 2015
+</time>
+on <a href='/tag/drupal/'>drupal</a>, <a href='/tag/dev/'>dev</a>
+</section>
+</header>
+<section class='post-content'><p>Using <code>entity_metadata_wrapper()</code> from the <a href="https://www.drupal.org/project/entity">Entity API</a> module has a <strong>lot of advantages</strong> discussed all over the internet, but it has been bugging me for quite some time that the wonderful switch from array structures to OOP has not solved one of the obvious <strong>problems - no auto-completing code</strong> in the editor.</p>
+
+<p>A very quick glance into the <code>entity_metadata_wrapper()</code> function showed me that this can be <strong>easily solved</strong> (at least partially) - with <code>EntityDrupalWrapper</code>.<br />
+The thing is, that <code>entity_metadata_wrapper()</code> returns an object based on provided arguments.<br />
+The “old” way:</p>
+
+<div class="highlight php"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
+<span class="nv">$node_wrapper</span> <span class="o">=</span> <span class="nx">entity_metadata_wrapper</span><span class="p">(</span><span class="s1">'node'</span><span class="p">,</span> <span class="nv">$node</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Since <code>entity_metadata_wrapper()</code> can return different object types, your IDE cannot determine which one actually gets returned and therefore does not provide proper auto-completing. If <code>EntityDrupalWrapper</code> is used directly, this problem goes away and you can enjoy at least some basic auto-completing of methods.<br />
+The <code>EntityDrupalWrapper</code> way:</p>
+
+<div class="highlight php"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
+<span class="nv">$node_wrapper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EntityDrupalWrapper</span><span class="p">(</span><span class="s1">'node'</span><span class="p">,</span> <span class="nv">$node</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p><strong>Result:</strong>
+<img alt="" src="http://res.cloudinary.com/m1n0/image/upload/v1433797361/EntityDrupalWrapper_code-completion_foimsc.png" /></p>
+
+<p>This unfortunately adds auto-complete for the basic methods only, you still need to type your field names manually.</p>
+
+<p><strong>Important:</strong><br />
+Use this only when you know what you are doing and when you are sure that <code>entity_metadata_wrapper()</code> would return <code>EntityDrupalWrapper</code> anyway - this only happens when you pass a valid entity type like <code>node</code> or <code>user</code> as the first parameter.</p>
+
+</section>
+<footer class='post-footer'>
+<figure class='author-image'>
+<a class='img' href='/author/m1n0/' style='background-image: url(https://www.gravatar.com/avatar/3e5e94b17e0afa2a29a1e325f1531759?size=68)'>
+<span class='hidden'>m1n0's Picture</span>
+</a>
+</figure>
+<section class='author'>
+<h4>
+<a href='/author/m1n0/'>m1n0</a>
+</h4>
+<p></p>
+m1n0 is a web dev passionate about technology, music and reading.
+<div class='author-meta'>
+<span class='author-link icon-link'>
+<a href='http://sk.linkedin.com/in/milanlukac'>http://sk.linkedin.com/in/milanlukac</a>
+</span>
+<br>
+<span class='author-link icon-link'>
+<a href='https://www.drupal.org/u/m1n0'>https://www.drupal.org/u/m1n0</a>
+</span>
+<br>
+<span class='author-link icon-link'>
+<a href='https://github.com/m1n0'>https://github.com/m1n0</a>
+</span>
+</div>
+</section>
+<section class='share'>
+<h4>Share this post</h4>
+<a class='icon-twitter' href='https://twitter.com/share?text=Drupal&amp;#58; EntityMetadataWrapper auto-completing code&amp;amp;url=http://justsomegeek.com/2015/06/08/drupal-entitymetadatawrapper-auto-completing-code/' onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+<span class='hidden'>Twitter</span>
+</a>
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://justsomegeek.com/2015/06/08/drupal-entitymetadatawrapper-auto-completing-code/' onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+<span class='hidden'>Facebook</span>
+</a>
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://justsomegeek.com/2015/06/08/drupal-entitymetadatawrapper-auto-completing-code/' onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+<span class='hidden'>Google+</span>
+</a>
+</section>
+<section class='disqus'>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+//<![CDATA[
+                  var disqus_shortname = 'm1n0blog';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</section>
+</footer>
+</article>
+</main>
+
+<footer class='site-footer clearfix'>
+<section class='copyright'>
+<a href='/'>Just Some Geek</a>
+&copy;
+2015
+</section>
+<section class='poweredby'>
+Casper theme powered by
+<a href='https://ghost.org'>Ghost</a>
+</section>
+</footer>
+<script src="/javascripts/application.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-61271241-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

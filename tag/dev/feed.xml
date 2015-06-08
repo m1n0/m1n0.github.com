@@ -5,10 +5,21 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/dev/feed.xml" rel="self"/>
-  <updated>2015-05-13T20:15:00+02:00</updated>
+  <updated>2015-06-08T22:42:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Drupal&amp;#58; EntityMetadataWrapper auto-completing code</title>
+    <link rel="alternate" href="http://justsomegeek.com/2015/06/08/drupal-entitymetadatawrapper-auto-completing-code/"/>
+    <id>http://justsomegeek.com/2015/06/08/drupal-entitymetadatawrapper-auto-completing-code/</id>
+    <published>2015-06-08T22:42:00+02:00</published>
+    <updated>2015-06-08T23:17:45+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Using entity_metadata_wrapper() from the Entity API module has a lot of advantages discussed all over the internet, but it has been bugging me for quite some </summary>
+  </entry>
   <entry>
     <title>Drupal&amp;#58; Slow Manage Features page</title>
     <link rel="alternate" href="http://justsomegeek.com/2015/05/13/drupal-slow-manage-features-page/"/>
@@ -25,7 +36,7 @@
     <link rel="alternate" href="http://justsomegeek.com/2015/04/10/drupal-save-entity-field-without-saving-entity-itself/"/>
     <id>http://justsomegeek.com/2015/04/10/drupal-save-entity-field-without-saving-entity-itself/</id>
     <published>2015-04-10T23:27:00+02:00</published>
-    <updated>2015-05-05T22:34:59+02:00</updated>
+    <updated>2015-05-23T17:12:26+02:00</updated>
     <author>
       <name>m1n0</name>
     </author>
@@ -69,17 +80,5 @@ To prevent this, simply </summary>
       <name>m1n0</name>
     </author>
     <summary type="html"> It can get really annoying when git status reports changes in files which are not really changed, just some file permissions have been modified. In most cases </summary>
-  </entry>
-  <entry>
-    <title>How-to&amp;#58; Remove Extra Button Spacing/Padding in Firefox</title>
-    <link rel="alternate" href="http://justsomegeek.com/2015/03/20/how-to-remove-extra-button-spacing-padding-in-firefox/"/>
-    <id>http://justsomegeek.com/2015/03/20/how-to-remove-extra-button-spacing-padding-in-firefox/</id>
-    <published>2015-03-20T22:21:00+01:00</published>
-    <updated>2015-05-05T22:08:54+02:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> It usually is Internet Explorer that makes the life of a web developer hard, but this time I stumbled upon an issue
-when Mozilla Firefox added unexpected padding </summary>
   </entry>
 </feed>
