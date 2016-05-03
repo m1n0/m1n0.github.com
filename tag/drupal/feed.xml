@@ -5,10 +5,23 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/drupal/feed.xml" rel="self"/>
-  <updated>2015-06-08T22:42:00+02:00</updated>
+  <updated>2016-05-03T20:19:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Drupal&amp;#58; debugging to a file</title>
+    <link rel="alternate" href="http://justsomegeek.com/2016/05/03/drupal-debugging-on-a-console/"/>
+    <id>http://justsomegeek.com/2016/05/03/drupal-debugging-on-a-console/</id>
+    <published>2016-05-03T20:19:00+02:00</published>
+    <updated>2016-05-03T20:54:04+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Drupal and debugging often means using Devel, which ships with some
+very useful functions like dpm(), kpr(), dpq() and more for outputting debug stuff,
+but these </summary>
+  </entry>
   <entry>
     <title>Drupal&amp;#58; EntityMetadataWrapper auto-completing code</title>
     <link rel="alternate" href="http://justsomegeek.com/2015/06/08/drupal-entitymetadatawrapper-auto-completing-code/"/>

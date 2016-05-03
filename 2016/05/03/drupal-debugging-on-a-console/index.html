@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Just Some Geek: How-to&#58; Keep Shell Connection</title>
-<meta content='It happens too often that I get disconnected from a shell connection after a while of inactivity with message Write failed: Broken pipe. To prevent this' name='description'>
+<title>Just Some Geek: Drupal&#58; debugging to a file</title>
+<meta content='Drupal and debugging often means using Devel, which ships with some very useful functions like dpm(), kpr(), dpq() and more for outputting debug stuff' name='description'>
 <meta charset='utf-8'>
 <meta content='width=device-width, initial-scale=1.0' name='viewport'>
 <meta content='IE=edge' http-equiv='X-UA-Compatible'>
@@ -22,26 +22,31 @@
 <main class='content' role='main'>
 <article class='post'>
 <header class='post-header'>
-<h1 class='post-title'>How-to&#58; Keep Shell Connection</h1>
+<h1 class='post-title'>Drupal&#58; debugging to a file</h1>
 <section class='post-meta'>
-<time class='post-date' datetime='2015-03-27'>
-27 March 2015
+<time class='post-date' datetime='2016-05-03'>
+03 May 2016
 </time>
-on <a href='/tag/dev/'>dev</a>, <a href='/tag/how-to/'>how-to</a>
+on <a href='/tag/drupal/'>drupal</a>, <a href='/tag/dev/'>dev</a>, <a href='/tag/debugging/'>debugging</a>
 </section>
 </header>
-<section class='post-content'><p>It happens too often that I get disconnected from a shell connection after a while of inactivity with message <code>Write failed: Broken pipe</code>.
-To prevent this, simply put:</p>
+<section class='post-content'><p>Drupal and debugging often means using <a href="https://www.drupal.org/project/devel">Devel</a>, which ships with some
+very useful functions like <a href="https://api.drupal.org/api/devel/devel.module/function/dpm/8.x-1.x"><code>dpm()</code></a>, <a href="https://api.drupal.org/api/devel/devel.module/function/kpr/8.x-1.x"><code>kpr()</code></a>, <a href="https://api.drupal.org/api/devel/devel.module/function/dpq/8.x-1.x"><code>dpq()</code></a> and more for outputting debug stuff,
+but these sometimes fail to display things on your site due to some reasons (e.g. called too
+late, an issue with a template, AJAX…).</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>Host *
-    ServerAliveInterval 30
-</pre></td></tr></tbody></table>
-</div>
+<p>Devel ships with a bit more magic that can help though, you can simply use <a href="http://www.drupalcontrib.org/api/drupal/contributions%21devel%21devel.module/function/dd/7"><code>dd()</code></a>
+which “logs a variable to a drupal_debug.txt in the site’s temp directory”, so you can simply
+do</p>
 
-<p>in your <code>~/.ssh/config</code> (OS X) or <code>/etc/ssh/ssh_config</code> (Linux) file.</p>
+<p><code>dd(‘something’);</code></p>
 
-<p>This will make sure that null packet will be sent every 30 seconds (you can edit the interval) to the server to keep the connection alive.</p>
+<p>in your code, and then <code>tail -f /tmp/drupal_debug.txt</code> for live feed
+of your debug goodies (or just open the file in an editor like a normal person).</p>
+
+<p><em><small>Note: This is more-or-less a last resort help for me, I prefer using breakpoints
+in my IDE which is way better and does not require knowing any of this. But I though
+<code>dd()</code> was cool as well :-).</small></em></p>
 </section>
 <footer class='post-footer'>
 <figure class='author-image'>
@@ -71,13 +76,13 @@ m1n0 is a web dev passionate about technology, music and reading.
 </section>
 <section class='share'>
 <h4>Share this post</h4>
-<a class='icon-twitter' href='https://twitter.com/share?text=How-to&amp;#58; Keep Shell Connection&amp;amp;url=http://justsomegeek.com/2015/03/27/how-to-keep-shell-connection/' onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+<a class='icon-twitter' href='https://twitter.com/share?text=Drupal&amp;#58; debugging to a file&amp;amp;url=http://justsomegeek.com/2016/05/03/drupal-debugging-on-a-console/' onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
 <span class='hidden'>Twitter</span>
 </a>
-<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://justsomegeek.com/2015/03/27/how-to-keep-shell-connection/' onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://justsomegeek.com/2016/05/03/drupal-debugging-on-a-console/' onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
 <span class='hidden'>Facebook</span>
 </a>
-<a class='icon-google-plus' href='https://plus.google.com/share?url=http://justsomegeek.com/2015/03/27/how-to-keep-shell-connection/' onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://justsomegeek.com/2016/05/03/drupal-debugging-on-a-console/' onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
 <span class='hidden'>Google+</span>
 </a>
 </section>

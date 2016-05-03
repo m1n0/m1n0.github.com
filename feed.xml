@@ -5,10 +5,23 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/feed.xml" rel="self"/>
-  <updated>2015-06-08T22:42:00+02:00</updated>
+  <updated>2016-05-03T20:19:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Drupal&amp;#58; debugging to a file</title>
+    <link rel="alternate" href="http://justsomegeek.com/2016/05/03/drupal-debugging-on-a-console/"/>
+    <id>http://justsomegeek.com/2016/05/03/drupal-debugging-on-a-console/</id>
+    <published>2016-05-03T20:19:00+02:00</published>
+    <updated>2016-05-03T20:54:04+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Drupal and debugging often means using Devel, which ships with some
+very useful functions like dpm(), kpr(), dpq() and more for outputting debug stuff,
+but these </summary>
+  </entry>
   <entry>
     <title>Drupal&amp;#58; EntityMetadataWrapper auto-completing code</title>
     <link rel="alternate" href="http://justsomegeek.com/2015/06/08/drupal-entitymetadatawrapper-auto-completing-code/"/>
@@ -69,16 +82,5 @@
     </author>
     <summary type="html"> It happens too often that I get disconnected from a shell connection after a while of inactivity with message Write failed: Broken pipe.
 To prevent this, simply </summary>
-  </entry>
-  <entry>
-    <title>How-to&amp;#58; Git - Ignore File Permissions Changes</title>
-    <link rel="alternate" href="http://justsomegeek.com/2015/03/23/how-to-git-ignore-file-permissions-changes/"/>
-    <id>http://justsomegeek.com/2015/03/23/how-to-git-ignore-file-permissions-changes/</id>
-    <published>2015-03-23T22:07:00+01:00</published>
-    <updated>2015-05-28T23:04:13+02:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> It can get really annoying when git status reports changes in files which are not really changed, just some file permissions have been modified. In most cases </summary>
   </entry>
 </feed>
