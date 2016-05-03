@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Just Some Geek: resizing</title>
+  <subtitle>Posts tagged with resizing</subtitle>
+  <id>http://justsomegeek.com</id>
+  <link href="http://justsomegeek.com"/>
+  <link href="http://justsomegeek.com/tag/resizing/feed.xml" rel="self"/>
+  <updated>2016-05-03T21:12:00+02:00</updated>
+  <author>
+    <name>m1n0</name>
+  </author>
+  <entry>
+    <title>OS X ad-hoc batch resize images</title>
+    <link rel="alternate" href="http://justsomegeek.com/2016/05/03/os-x-ad-hoc-batch-resize-images/"/>
+    <id>http://justsomegeek.com/2016/05/03/os-x-ad-hoc-batch-resize-images/</id>
+    <published>2016-05-03T21:12:00+02:00</published>
+    <updated>2016-05-03T21:18:57+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> I am by no means a photographer who generates thousands of pictures per year
+and has apps and workflows around all that, but a need to batch resize
+big pictures </summary>
+  </entry>
+</feed>
