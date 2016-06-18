@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Just Some Geek: open atrium</title>
+  <subtitle>Posts tagged with open atrium</subtitle>
+  <id>http://justsomegeek.com</id>
+  <link href="http://justsomegeek.com"/>
+  <link href="http://justsomegeek.com/tag/open-atrium/feed.xml" rel="self"/>
+  <updated>2016-06-18T14:07:00+02:00</updated>
+  <author>
+    <name>m1n0</name>
+  </author>
+  <entry>
+    <title>Drupal&amp;#58; Open Atrium alter Message Notification type</title>
+    <link rel="alternate" href="http://justsomegeek.com/2016/06/18/drupal-open-atrium-alter-message-notification-type/"/>
+    <id>http://justsomegeek.com/2016/06/18/drupal-open-atrium-alter-message-notification-type/</id>
+    <published>2016-06-18T14:07:00+02:00</published>
+    <updated>2016-06-18T14:18:16+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Recently I needed to send Created message instead of Updated when editors
+publish node in Open Atrium.
+This is how you can simply alter message type, which is </summary>
+  </entry>
+</feed>

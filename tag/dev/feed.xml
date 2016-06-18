@@ -5,10 +5,23 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/dev/feed.xml" rel="self"/>
-  <updated>2016-05-03T21:12:00+02:00</updated>
+  <updated>2016-06-18T14:07:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Drupal&amp;#58; Open Atrium alter Message Notification type</title>
+    <link rel="alternate" href="http://justsomegeek.com/2016/06/18/drupal-open-atrium-alter-message-notification-type/"/>
+    <id>http://justsomegeek.com/2016/06/18/drupal-open-atrium-alter-message-notification-type/</id>
+    <published>2016-06-18T14:07:00+02:00</published>
+    <updated>2016-06-18T14:18:16+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Recently I needed to send Created message instead of Updated when editors
+publish node in Open Atrium.
+This is how you can simply alter message type, which is </summary>
+  </entry>
   <entry>
     <title>Drupal&amp;#58; debugging to a file</title>
     <link rel="alternate" href="http://justsomegeek.com/2016/05/03/drupal-debugging-to-a-file/"/>
@@ -70,17 +83,5 @@ but these </summary>
    
      
  </summary>
-  </entry>
-  <entry>
-    <title>How-to&amp;#58; Keep Shell Connection</title>
-    <link rel="alternate" href="http://justsomegeek.com/2015/03/27/how-to-keep-shell-connection/"/>
-    <id>http://justsomegeek.com/2015/03/27/how-to-keep-shell-connection/</id>
-    <published>2015-03-27T22:14:00+01:00</published>
-    <updated>2015-05-28T23:04:13+02:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> It happens too often that I get disconnected from a shell connection after a while of inactivity with message Write failed: Broken pipe.
-To prevent this, simply </summary>
   </entry>
 </feed>
