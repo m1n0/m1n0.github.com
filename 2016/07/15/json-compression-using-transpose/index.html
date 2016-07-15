@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Just Some Geek: JSON compression using transpose</title>
+<meta content='I stumbled upon a blog post about compressing JSON data by rotating it 90 degrees. This caught my eye, so I decided to have a play with it. Malc (the' name='description'>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='True' name='HandheldFriendly'>
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+<link href="/images/favicon.ico" rel="icon" type="image/ico" />
+<link href="/stylesheets/application.css" rel="stylesheet" />
+<link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
+</head>
+<body class='post-template'>
+<header class='main-header no-cover post-head'>
+<nav class='main-nav clearfix'>
+<a class='back-button icon-arrow-left' href='/'>Home</a>
+<a class='subscribe-button icon-feed' href='/feed.xml'>Subscribe</a>
+</nav>
+</header>
+<main class='content' role='main'>
+<article class='post'>
+<header class='post-header'>
+<h1 class='post-title'>JSON compression using transpose</h1>
+<section class='post-meta'>
+<time class='post-date' datetime='2016-07-15'>
+15 July 2016
+</time>
+on <a href='/tag/dev/'>dev</a>, <a href='/tag/json/'>json</a>, <a href='/tag/services/'>services</a>, <a href='/tag/optimisation/'>optimisation</a>
+</section>
+</header>
+<section class='post-content'><p>I stumbled upon a <a href="http://malctheoracle.com/post/json-compression-by-rotating-data-90-degrees">blog post</a> about <strong>compressing JSON data</strong> by rotating it 90 degrees. This caught my eye, so I decided to have a play with it.</p>
+
+<p>Malc (the author of the JSON rotating blog post) shows how <strong>transposing object arrays into flat arrays of data</strong> can compress a JSON response significantly, even when you use gzip (please read that blog post if you are interested. It’s quite short).</p>
+
+<p>I figured that while Malc’s claims on saving data were interesting enough even after gzip came into play, it would be interesting to see how this would compete <strong>in real world</strong>, when the data to be returned might already be formatted in undesirable structure – <strong>would the data savings be worth extra processing required to transpose the data?</strong></p>
+
+<p>As an exercise, I decided to write a <a href="https://github.com/m1n0/JSONRotator">very simple PHP app</a> to test this out. Here is what I did:</p>
+
+<p>I generated 1000 random records with three keys: name, company and country and tried rotating them so that input like this:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre>$input = [
+["name" =&gt; "Jeffrey Scott", "company" =&gt; "Rhyloo", "country" =&gt; "Indonesia"],
+["name" =&gt; "Robert Hayes", "company" =&gt; "Roodel", "country" =&gt; "Brazil"],
+["name" =&gt; "Juan Wells", "company" =&gt; "Jabberstorm", "country" =&gt; "Cape Verde"],
+];
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Gets converted into something like this:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre>$output = [
+    'name' =&gt; ['Jeffrey Scott', 'Robert Hayes', 'Juan Wells'],
+    'company' =&gt; ['Rhyloo', 'Roodel', 'Jabberstorm'],
+    'country' =&gt; ['Indonesia', 'Brazil', 'Cape Verde'],
+];
+</pre></td></tr></tbody></table>
+</div>
+
+<p>For measuring the processing impact of transposing, I used <strong>both iterative and recursive transpose implementation</strong>, but I could not measure the difference between the two probably due to local environment (the comparisons were inconclusive, <strong>one performed better during one run, the other on another run</strong>).</p>
+
+<p>Here is an example run output:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre></td><td class="code"><pre>Running with 10 records:
+--- Encoding to JSON as-is: ---
+Time elapsed: 2.598762512207E-5 s
+JSON size: 649 B
+JSON gzipped size: 207 B
+
+
+--- Encoding to JSON transposed: ---
+Time elapsed: 4.5061111450195E-5 s
+JSON size: 392 B
+JSON gzipped size: 185 B
+
+Previous run comparison:
+Time: 1.7339449541284
+Size: 0.6040061633282
+Gzipped size: 0.89371980676328
+
+
+Recursive transpose (keys are not preserved, comparing to no-transpose run):
+--- Encoding to JSON transposed: ---
+Time elapsed: 4.4822692871094E-5 s
+JSON size: 365 B
+JSON gzipped size: 187 B
+
+Previous run comparison:
+Time: 1.7247706422018
+Size: 0.56240369799692
+Gzipped size: 0.90338164251208
+
+
+Running with 1000 records:
+--- Encoding to JSON as-is: ---
+Time elapsed: 0.00086808204650879 s
+JSON size: 65056 B
+JSON gzipped size: 9274 B
+
+
+--- Encoding to JSON transposed: ---
+Time elapsed: 0.0017111301422119 s
+JSON size: 36089 B
+JSON gzipped size: 7830 B
+
+Previous run comparison:
+Time: 1.9711617687449
+Size: 0.55473745696016
+Gzipped size: 0.84429588095752
+
+
+Recursive transpose (keys are not preserved, comparing to no-transpose run):
+--- Encoding to JSON transposed: ---
+Time elapsed: 0.0015218257904053 s
+JSON size: 36062 B
+JSON gzipped size: 7801 B
+
+Previous run comparison:
+Time: 1.7530898104916
+Size: 0.55432242990654
+Gzipped size: 0.84116885917619
+</pre></td></tr></tbody></table>
+</div>
+
+<p>(comparisons are done as current run var / previous run var)</p>
+
+<p>My observations are that while relative size <strong>savings can be substantial</strong>, in real world when API does not normally returns hundreds or thousands of objects this means savings in the range of Bytes, which is not significant and most probably not worth extra processing. On the other hand, I think this can be useful <strong>when constructing the data from scratch</strong>, when there is no extra processing involved – saving 10-15% on response size is significant even when it comes to Bytes in that case, especially for a service that is called a lot.</p>
+
+<p>Furthermore, there are other things to consider with this method – loss of human readability, JSON consumers have to be aware of not-so-much-standardised format (although it is reasonably simple to adjust) etc…</p>
+
+<p>My conclusion is, that since microservices are getting ever so popular, this technique is <strong>something an API designer should give at least few seconds of thought</strong> and assess possible benefits.</p>
+</section>
+<footer class='post-footer'>
+<figure class='author-image'>
+<a class='img' href='/author/m1n0/' style='background-image: url(https://www.gravatar.com/avatar/3e5e94b17e0afa2a29a1e325f1531759?size=68)'>
+<span class='hidden'>m1n0's Picture</span>
+</a>
+</figure>
+<section class='author'>
+<h4>
+<a href='/author/m1n0/'>m1n0</a>
+</h4>
+<p></p>
+m1n0 is a web dev passionate about technology, music and reading.
+<div class='author-meta'>
+<span class='author-link icon-link'>
+<a href='http://sk.linkedin.com/in/milanlukac'>http://sk.linkedin.com/in/milanlukac</a>
+</span>
+<br>
+<span class='author-link icon-link'>
+<a href='https://www.drupal.org/u/m1n0'>https://www.drupal.org/u/m1n0</a>
+</span>
+<br>
+<span class='author-link icon-link'>
+<a href='https://github.com/m1n0'>https://github.com/m1n0</a>
+</span>
+</div>
+</section>
+<section class='share'>
+<h4>Share this post</h4>
+<a class='icon-twitter' href='https://twitter.com/share?text=JSON compression using transpose&amp;amp;url=http://justsomegeek.com/2016/07/15/json-compression-using-transpose/' onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+<span class='hidden'>Twitter</span>
+</a>
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://justsomegeek.com/2016/07/15/json-compression-using-transpose/' onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+<span class='hidden'>Facebook</span>
+</a>
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://justsomegeek.com/2016/07/15/json-compression-using-transpose/' onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+<span class='hidden'>Google+</span>
+</a>
+</section>
+<section class='disqus'>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+//<![CDATA[
+                  var disqus_shortname = 'm1n0blog';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</section>
+</footer>
+</article>
+</main>
+
+<footer class='site-footer clearfix'>
+<section class='copyright'>
+<a href='/'>Just Some Geek</a>
+&copy;
+2016
+</section>
+<section class='poweredby'>
+Casper theme powered by
+<a href='https://ghost.org'>Ghost</a>
+</section>
+</footer>
+<script src="/javascripts/application.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-61271241-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

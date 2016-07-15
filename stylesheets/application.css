@@ -1809,6 +1809,10 @@ body:not(.post-template) .post-title {
 .highlight {
   background-color: #f8f8f8; }
 
+body {
+  font-size: 1.7rem;
+  line-height: 1.65em; }
+
 pre {
   background: transparent;
   border-style: none;
@@ -1818,7 +1822,8 @@ td.gutter {
   display: none; }
 
 .code pre {
-  white-space: pre-wrap; }
+  white-space: pre-wrap;
+  font-size: 0.75em; }
 
 #data > div {
   width: 48%;

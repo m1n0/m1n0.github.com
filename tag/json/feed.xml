@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Just Some Geek: json</title>
+  <subtitle>Posts tagged with json</subtitle>
+  <id>http://justsomegeek.com</id>
+  <link href="http://justsomegeek.com"/>
+  <link href="http://justsomegeek.com/tag/json/feed.xml" rel="self"/>
+  <updated>2016-07-15T18:09:00+02:00</updated>
+  <author>
+    <name>m1n0</name>
+  </author>
+  <entry>
+    <title>JSON compression using transpose</title>
+    <link rel="alternate" href="http://justsomegeek.com/2016/07/15/json-compression-using-transpose/"/>
+    <id>http://justsomegeek.com/2016/07/15/json-compression-using-transpose/</id>
+    <published>2016-07-15T18:09:00+02:00</published>
+    <updated>2016-07-15T20:08:44+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> I stumbled upon a blog post about compressing JSON data by rotating it 90 degrees. This caught my eye, so I decided to have a play with it. 
+
+ Malc (the author </summary>
+  </entry>
+</feed>

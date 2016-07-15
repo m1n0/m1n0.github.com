@@ -5,10 +5,23 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/feed.xml" rel="self"/>
-  <updated>2016-06-18T14:07:00+02:00</updated>
+  <updated>2016-07-15T18:09:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>JSON compression using transpose</title>
+    <link rel="alternate" href="http://justsomegeek.com/2016/07/15/json-compression-using-transpose/"/>
+    <id>http://justsomegeek.com/2016/07/15/json-compression-using-transpose/</id>
+    <published>2016-07-15T18:09:00+02:00</published>
+    <updated>2016-07-15T20:08:44+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> I stumbled upon a blog post about compressing JSON data by rotating it 90 degrees. This caught my eye, so I decided to have a play with it. 
+
+ Malc (the author </summary>
+  </entry>
   <entry>
     <title>Drupal&amp;#58; Open Atrium alter Message Notification type</title>
     <link rel="alternate" href="http://justsomegeek.com/2016/06/18/drupal-open-atrium-alter-message-notification-type/"/>
@@ -69,16 +82,5 @@ but these </summary>
       <name>m1n0</name>
     </author>
     <summary type="html"> Many sites and distributions built on Drupal make use of Features. It often happens that having a big number of features on a site makes the Manage Features </summary>
-  </entry>
-  <entry>
-    <title>Drupal&amp;#58; Save Entity Field Without Saving Entity Itself</title>
-    <link rel="alternate" href="http://justsomegeek.com/2015/04/10/drupal-save-entity-field-without-saving-entity-itself/"/>
-    <id>http://justsomegeek.com/2015/04/10/drupal-save-entity-field-without-saving-entity-itself/</id>
-    <published>2015-04-10T23:27:00+02:00</published>
-    <updated>2015-05-28T23:04:13+02:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> Drupal provides API for saving entities such as node_save() or user_save(). Functions like this update the whole provided entity, using up a lot of resources </summary>
   </entry>
 </feed>
