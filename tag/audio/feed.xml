@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Just Some Geek: audio</title>
+  <subtitle>Posts tagged with audio</subtitle>
+  <id>http://justsomegeek.com</id>
+  <link href="http://justsomegeek.com"/>
+  <link href="http://justsomegeek.com/tag/audio/feed.xml" rel="self"/>
+  <updated>2017-04-06T17:50:00+02:00</updated>
+  <author>
+    <name>m1n0</name>
+  </author>
+  <entry>
+    <title>Hacking Superlux HD668B for better sound</title>
+    <link rel="alternate" href="http://justsomegeek.com/2017/04/06/hacking-superlux-hd668b-for-better-sound/"/>
+    <id>http://justsomegeek.com/2017/04/06/hacking-superlux-hd668b-for-better-sound/</id>
+    <published>2017-04-06T17:50:00+02:00</published>
+    <updated>2017-04-06T19:02:47+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> I got myself a pair of Superlux HD668Bs based on a recommendation as a good
+value hi-fi headphones. I like them, but they sound a bit too harsh
+to me, so I decided </summary>
+  </entry>
+</feed>

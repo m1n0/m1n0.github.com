@@ -5,10 +5,23 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/feed.xml" rel="self"/>
-  <updated>2016-07-15T18:09:00+02:00</updated>
+  <updated>2017-04-06T17:50:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Hacking Superlux HD668B for better sound</title>
+    <link rel="alternate" href="http://justsomegeek.com/2017/04/06/hacking-superlux-hd668b-for-better-sound/"/>
+    <id>http://justsomegeek.com/2017/04/06/hacking-superlux-hd668b-for-better-sound/</id>
+    <published>2017-04-06T17:50:00+02:00</published>
+    <updated>2017-04-06T19:02:47+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> I got myself a pair of Superlux HD668Bs based on a recommendation as a good
+value hi-fi headphones. I like them, but they sound a bit too harsh
+to me, so I decided </summary>
+  </entry>
   <entry>
     <title>JSON compression using transpose</title>
     <link rel="alternate" href="http://justsomegeek.com/2016/07/15/json-compression-using-transpose/"/>
@@ -71,16 +84,5 @@ but these </summary>
       <name>m1n0</name>
     </author>
     <summary type="html"> Using entity_metadata_wrapper() from the Entity API module has a lot of advantages discussed all over the internet, but it has been bugging me for quite some </summary>
-  </entry>
-  <entry>
-    <title>Drupal&amp;#58; Slow Manage Features page</title>
-    <link rel="alternate" href="http://justsomegeek.com/2015/05/13/drupal-slow-manage-features-page/"/>
-    <id>http://justsomegeek.com/2015/05/13/drupal-slow-manage-features-page/</id>
-    <published>2015-05-13T20:15:00+02:00</published>
-    <updated>2015-05-28T23:04:13+02:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> Many sites and distributions built on Drupal make use of Features. It often happens that having a big number of features on a site makes the Manage Features </summary>
   </entry>
 </feed>
