@@ -5,10 +5,21 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/how-to/feed.xml" rel="self"/>
-  <updated>2017-04-06T17:50:00+02:00</updated>
+  <updated>2017-05-19T08:07:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Git&amp;#58; Cleaning up merged branches</title>
+    <link rel="alternate" href="http://justsomegeek.com/2017/05/19/git-cleaning-up-merged-branches/"/>
+    <id>http://justsomegeek.com/2017/05/19/git-cleaning-up-merged-branches/</id>
+    <published>2017-05-19T08:07:00+02:00</published>
+    <updated>2017-05-19T09:27:28+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Using some kind of git branching strategy (e.g. GitFLow, GitHub Flow or other) normally produces quite a lot of branches. When these do not get merged on you </summary>
+  </entry>
   <entry>
     <title>How to&amp;#58; OS X ad-hoc batch resize images</title>
     <link rel="alternate" href="http://justsomegeek.com/2016/05/03/how-to-os-x-ad-hoc-batch-resize-images/"/>
@@ -66,17 +77,5 @@ To prevent this, simply </summary>
       <name>m1n0</name>
     </author>
     <summary type="html"> It can get really annoying when git status reports changes in files which are not really changed, just some file permissions have been modified. In most cases </summary>
-  </entry>
-  <entry>
-    <title>How-to&amp;#58; Remove Extra Button Spacing/Padding in Firefox</title>
-    <link rel="alternate" href="http://justsomegeek.com/2015/03/20/how-to-remove-extra-button-spacing-padding-in-firefox/"/>
-    <id>http://justsomegeek.com/2015/03/20/how-to-remove-extra-button-spacing-padding-in-firefox/</id>
-    <published>2015-03-20T22:21:00+01:00</published>
-    <updated>2015-05-28T23:04:13+02:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> It usually is Internet Explorer that makes the life of a web developer hard, but this time I stumbled upon an issue
-when Mozilla Firefox added unexpected padding </summary>
   </entry>
 </feed>
