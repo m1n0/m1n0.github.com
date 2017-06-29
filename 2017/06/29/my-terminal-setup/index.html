@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Just Some Geek: My Terminal setup</title>
+<meta content='A few friends have asked me about my terminal setup, so I decided to write up a small blog post about it. This is what my terminal looks like in action' name='description'>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='True' name='HandheldFriendly'>
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+<link href="/images/favicon.ico" rel="icon" type="image/ico" />
+<link href="/stylesheets/application.css" rel="stylesheet" />
+<link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
+</head>
+<body class='post-template'>
+<header class='main-header no-cover post-head'>
+<nav class='main-nav clearfix'>
+<a class='back-button icon-arrow-left' href='/'>Home</a>
+<a class='subscribe-button icon-feed' href='/feed.xml'>Subscribe</a>
+</nav>
+</header>
+<main class='content' role='main'>
+<article class='post'>
+<header class='post-header'>
+<h1 class='post-title'>My Terminal setup</h1>
+<section class='post-meta'>
+<time class='post-date' datetime='2017-06-29'>
+29 June 2017
+</time>
+on <a href='/tag/dev/'>dev</a>, <a href='/tag/how-to/'>how-to</a>
+</section>
+</header>
+<section class='post-content'><p>A few friends have asked me about my terminal setup, so I decided to write up
+a small blog post about it.</p>
+
+<p>This is what my terminal looks like in action:</p>
+
+<p><img alt="" src="http://res.cloudinary.com/m1n0/image/upload/v1498770649/01_zzyxzs.gif" /></p>
+
+<p>As you can see there are several things going on there, the prompt shows the current
+Python environment and git branch and its status. There is also history-based autocomplete
+of commands, and recognized commands are shown in green (not found ones in red).</p>
+
+<p>Another small example is a quick jump functionality for easy navigation:
+<img alt="" src="http://res.cloudinary.com/m1n0/image/upload/v1498770688/02_ov7yq6.gif" /></p>
+
+<p>This is not a detailed installation and setup guide, but more like a list of things and plugins
+I use to achieve what I have.</p>
+
+<p><strong>The basic setup</strong>:</p>
+
+<ul>
+  <li><a href="https://www.iterm2.com/">iTerm 2</a></li>
+  <li><a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> - Installation very well
+documented on the linked page</li>
+  <li><a href="https://github.com/wesbos/Cobalt2-iterm">Cobalt2 theme</a> - This provides the color
+scheme, prompt etc.</li>
+</ul>
+
+<p>Some extra plugins I like to use:</p>
+
+<ul>
+  <li><a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions (autocomplete)</a></li>
+  <li><a href="https://github.com/zsh-users/zsh-syntax-highlighting">Syntax highlighting</a></li>
+  <li><a href="https://github.com/rupa/z">Z</a> - this is the history-based jumping around plugin shown in the
+second gif above, adding <code>z</code> into the list of plugins in my <code>~/.zshrc</code> worked for me</li>
+</ul>
+
+<p>My whole list of enabled zsh plugins:</p>
+
+<p><code>plugins=(git zsh-autosuggestions composer npm z brew osx symfony2 zsh-syntax-highlighting python pip pyenv)</code></p>
+
+<p>I used <a href="https://www.smashingmagazine.com/2015/07/become-command-line-power-user-oh-my-zsh-z/">this article</a>
+when setting all this up, it has some good details in it.</p>
+
+<p>I hope this helps, if you have any questions, suggestions, or some cool stuff
+you use in your terminal please let me know in the comments below!</p>
+</section>
+<footer class='post-footer'>
+<figure class='author-image'>
+<a class='img' href='/author/m1n0/' style='background-image: url(https://www.gravatar.com/avatar/3e5e94b17e0afa2a29a1e325f1531759?size=68)'>
+<span class='hidden'>m1n0's Picture</span>
+</a>
+</figure>
+<section class='author'>
+<h4>
+<a href='/author/m1n0/'>m1n0</a>
+</h4>
+<p></p>
+m1n0 is a web dev passionate about technology, music and reading.
+<div class='author-meta'>
+<span class='author-link icon-link'>
+<a href='http://sk.linkedin.com/in/milanlukac'>http://sk.linkedin.com/in/milanlukac</a>
+</span>
+<br>
+<span class='author-link icon-link'>
+<a href='https://www.drupal.org/u/m1n0'>https://www.drupal.org/u/m1n0</a>
+</span>
+<br>
+<span class='author-link icon-link'>
+<a href='https://github.com/m1n0'>https://github.com/m1n0</a>
+</span>
+</div>
+</section>
+<section class='share'>
+<h4>Share this post</h4>
+<a class='icon-twitter' href='https://twitter.com/share?text=My Terminal setup&amp;amp;url=http://justsomegeek.com/2017/06/29/my-terminal-setup/' onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+<span class='hidden'>Twitter</span>
+</a>
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://justsomegeek.com/2017/06/29/my-terminal-setup/' onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+<span class='hidden'>Facebook</span>
+</a>
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://justsomegeek.com/2017/06/29/my-terminal-setup/' onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+<span class='hidden'>Google+</span>
+</a>
+</section>
+<section class='disqus'>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+//<![CDATA[
+                  var disqus_shortname = 'm1n0blog';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</section>
+</footer>
+</article>
+</main>
+
+<footer class='site-footer clearfix'>
+<section class='copyright'>
+<a href='/'>Just Some Geek</a>
+&copy;
+2017
+</section>
+<section class='poweredby'>
+Casper theme powered by
+<a href='https://ghost.org'>Ghost</a>
+</section>
+</footer>
+<script src="/javascripts/application.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-61271241-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

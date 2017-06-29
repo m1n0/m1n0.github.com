@@ -5,10 +5,27 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/feed.xml" rel="self"/>
-  <updated>2017-05-19T08:07:00+02:00</updated>
+  <updated>2017-06-29T22:48:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>My Terminal setup</title>
+    <link rel="alternate" href="http://justsomegeek.com/2017/06/29/my-terminal-setup/"/>
+    <id>http://justsomegeek.com/2017/06/29/my-terminal-setup/</id>
+    <published>2017-06-29T22:48:00+02:00</published>
+    <updated>2017-06-29T23:37:31+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> A few friends have asked me about my terminal setup, so I decided to write up
+a small blog post about it. 
+
+ This is what my terminal looks like in action: 
+
+  
+</summary>
+  </entry>
   <entry>
     <title>Git&amp;#58; Cleaning up merged branches</title>
     <link rel="alternate" href="http://justsomegeek.com/2017/05/19/git-cleaning-up-merged-branches/"/>
@@ -71,18 +88,5 @@ This is how you can simply alter message type, which is </summary>
     <summary type="html"> I am by no means a photographer who generates thousands of pictures per year
 and has apps and workflows around all that, but a need to batch resize
 big pictures </summary>
-  </entry>
-  <entry>
-    <title>Drupal&amp;#58; debugging to a file</title>
-    <link rel="alternate" href="http://justsomegeek.com/2016/05/03/drupal-debugging-to-a-file/"/>
-    <id>http://justsomegeek.com/2016/05/03/drupal-debugging-to-a-file/</id>
-    <published>2016-05-03T20:19:00+02:00</published>
-    <updated>2016-05-03T21:29:35+02:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> Drupal and debugging often means using Devel, which ships with some
-very useful functions like dpm(), kpr(), dpq() and more for outputting debug stuff,
-but these </summary>
   </entry>
 </feed>

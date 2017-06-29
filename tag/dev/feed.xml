@@ -5,10 +5,27 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/dev/feed.xml" rel="self"/>
-  <updated>2017-05-19T08:07:00+02:00</updated>
+  <updated>2017-06-29T22:48:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>My Terminal setup</title>
+    <link rel="alternate" href="http://justsomegeek.com/2017/06/29/my-terminal-setup/"/>
+    <id>http://justsomegeek.com/2017/06/29/my-terminal-setup/</id>
+    <published>2017-06-29T22:48:00+02:00</published>
+    <updated>2017-06-29T23:37:31+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> A few friends have asked me about my terminal setup, so I decided to write up
+a small blog post about it. 
+
+ This is what my terminal looks like in action: 
+
+  
+</summary>
+  </entry>
   <entry>
     <title>Git&amp;#58; Cleaning up merged branches</title>
     <link rel="alternate" href="http://justsomegeek.com/2017/05/19/git-cleaning-up-merged-branches/"/>
@@ -69,16 +86,5 @@ but these </summary>
       <name>m1n0</name>
     </author>
     <summary type="html"> Using entity_metadata_wrapper() from the Entity API module has a lot of advantages discussed all over the internet, but it has been bugging me for quite some </summary>
-  </entry>
-  <entry>
-    <title>Drupal&amp;#58; Slow Manage Features page</title>
-    <link rel="alternate" href="http://justsomegeek.com/2015/05/13/drupal-slow-manage-features-page/"/>
-    <id>http://justsomegeek.com/2015/05/13/drupal-slow-manage-features-page/</id>
-    <published>2015-05-13T20:15:00+02:00</published>
-    <updated>2015-05-28T23:04:13+02:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> Many sites and distributions built on Drupal make use of Features. It often happens that having a big number of features on a site makes the Manage Features </summary>
   </entry>
 </feed>
