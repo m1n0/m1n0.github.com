@@ -1,0 +1,3 @@
+# justsomegeek.com
+
+My blog.
