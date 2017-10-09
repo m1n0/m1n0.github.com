@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Just Some Geek: OAuth2 Tokens in Postman</title>
+<meta content='I like to use Postman when developing REST APIs. It allows me to save, group and share different requests, prepare different payloads to test different' name='description'>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='True' name='HandheldFriendly'>
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+<link href="/images/favicon.ico" rel="icon" type="image/ico" />
+<link href="/stylesheets/application.css" rel="stylesheet" />
+<link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
+</head>
+<body class='post-template'>
+<header class='main-header no-cover post-head'>
+<nav class='main-nav clearfix'>
+<a class='back-button icon-arrow-left' href='/'>Home</a>
+<a class='subscribe-button icon-feed' href='/feed.xml'>Subscribe</a>
+</nav>
+</header>
+<main class='content' role='main'>
+<article class='post'>
+<header class='post-header'>
+<h1 class='post-title'>OAuth2 Tokens in Postman</h1>
+<section class='post-meta'>
+<time class='post-date' datetime='2017-10-09'>
+09 October 2017
+</time>
+on <a href='/tag/dev/'>dev</a>, <a href='/tag/symfony/'>symfony</a>, <a href='/tag/oauth/'>oauth</a>
+</section>
+</header>
+<section class='post-content'><p>I like to use <a href="getpostman.com">Postman</a> when developing REST APIs. It allows me
+to save, group and share different requests, prepare different payloads to test different
+scenarios and it helps with manual (some people use it even for automatic) testing.
+Furthermore, securing APIs with OAuth2 is very common - it’s secure and practical.
+But when it comes to combining the two, it can be a bit tricky to get things
+running smoothly.</p>
+
+<p>I don’t like to change my development environment for the sake of convenience,
+so I do not disable OAuth locally. This means that I have to pass a valid OAuth token
+with each request. This can get <strong>very annoying</strong> though, you have to request a token
+and then paste it into each request etc., so I started looking into
+<strong>automatic OAuth token request functionality</strong> in
+Postman. I had issues to get it working locally (and could not get it working), but it does not even completely solve the annoying part of making sure you have the correct token in a request.</p>
+
+<p>I <strong>grew tired of copy-pasting</strong> tokens and <strong>automated</strong> the whole thing. Once I spent few minutes and looked into it I was banging my head against the wall asking myself why I hadn’t done this
+earlier.</p>
+
+<p>Here is my setup:<br />
+I set up a <strong>simple test script</strong> in Postman which is automatically run after each
+Request Token request, which sets the <strong>retrieved token into a postman environment variable</strong>.</p>
+
+<div class="highlight javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">jsonData</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">responseBody</span><span class="p">);</span>
+<span class="nx">postman</span><span class="p">.</span><span class="nx">setEnvironmentVariable</span><span class="p">(</span><span class="s2">"accessToken"</span><span class="p">,</span> <span class="nx">jsonData</span><span class="p">.</span><span class="nx">access_token</span><span class="p">);</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Next, I just use this variable in every saved request header like this:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>Authorization: Bearer {{accessToken}}
+</pre></td></tr></tbody></table>
+</div>
+
+<p>And that’s it - no need for anything else, just request a token <strong>once</strong> and use it
+until it expires with all the requests you have!</p>
+</section>
+<footer class='post-footer'>
+<figure class='author-image'>
+<a class='img' href='/author/m1n0/' style='background-image: url(https://www.gravatar.com/avatar/3e5e94b17e0afa2a29a1e325f1531759?size=68)'>
+<span class='hidden'>m1n0's Picture</span>
+</a>
+</figure>
+<section class='author'>
+<h4>
+<a href='/author/m1n0/'>m1n0</a>
+</h4>
+<p></p>
+m1n0 is a software engineer passionate about technology, machine learning, music and reading.
+<div class='author-meta'>
+<span class='author-link icon-link'>
+<a href='http://sk.linkedin.com/in/milanlukac'>http://sk.linkedin.com/in/milanlukac</a>
+</span>
+<br>
+<span class='author-link icon-link'>
+<a href='https://github.com/m1n0'>https://github.com/m1n0</a>
+</span>
+</div>
+</section>
+<section class='share'>
+<h4>Share this post</h4>
+<a class='icon-twitter' href='https://twitter.com/share?text=OAuth2 Tokens in Postman&amp;amp;url=http://justsomegeek.com/2017/10/09/oauth2-tokens-postman/' onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+<span class='hidden'>Twitter</span>
+</a>
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://justsomegeek.com/2017/10/09/oauth2-tokens-postman/' onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+<span class='hidden'>Facebook</span>
+</a>
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://justsomegeek.com/2017/10/09/oauth2-tokens-postman/' onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+<span class='hidden'>Google+</span>
+</a>
+</section>
+<section class='disqus'>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+//<![CDATA[
+                  var disqus_shortname = 'm1n0blog';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</section>
+</footer>
+</article>
+</main>
+
+<footer class='site-footer clearfix'>
+<section class='copyright'>
+<a href='/'>Just Some Geek</a>
+&copy;
+2017
+</section>
+<section class='poweredby'>
+Casper theme powered by
+<a href='https://ghost.org'>Ghost</a>
+</section>
+</footer>
+<script src="/javascripts/application.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-61271241-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

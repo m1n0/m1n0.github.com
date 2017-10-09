@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Just Some Geek: symfony</title>
+  <subtitle>Posts tagged with symfony</subtitle>
+  <id>http://justsomegeek.com</id>
+  <link href="http://justsomegeek.com"/>
+  <link href="http://justsomegeek.com/tag/symfony/feed.xml" rel="self"/>
+  <updated>2017-10-09T23:06:00+02:00</updated>
+  <author>
+    <name>m1n0</name>
+  </author>
+  <entry>
+    <title>OAuth2 Tokens in Postman</title>
+    <link rel="alternate" href="http://justsomegeek.com/2017/10/09/oauth2-tokens-postman/"/>
+    <id>http://justsomegeek.com/2017/10/09/oauth2-tokens-postman/</id>
+    <published>2017-10-09T23:06:00+02:00</published>
+    <updated>2017-10-10T00:04:13+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> I like to use Postman when developing REST APIs. It allows me
+to save, group and share different requests, prepare different payloads to test different
+scenarios </summary>
+  </entry>
+</feed>

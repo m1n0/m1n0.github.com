@@ -5,10 +5,23 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/dev/feed.xml" rel="self"/>
-  <updated>2017-06-29T22:48:00+02:00</updated>
+  <updated>2017-10-09T23:06:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>OAuth2 Tokens in Postman</title>
+    <link rel="alternate" href="http://justsomegeek.com/2017/10/09/oauth2-tokens-postman/"/>
+    <id>http://justsomegeek.com/2017/10/09/oauth2-tokens-postman/</id>
+    <published>2017-10-09T23:06:00+02:00</published>
+    <updated>2017-10-10T00:04:13+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> I like to use Postman when developing REST APIs. It allows me
+to save, group and share different requests, prepare different payloads to test different
+scenarios </summary>
+  </entry>
   <entry>
     <title>My Terminal setup</title>
     <link rel="alternate" href="http://justsomegeek.com/2017/06/29/my-terminal-setup/"/>
@@ -75,16 +88,5 @@ This is how you can simply alter message type, which is </summary>
     <summary type="html"> Drupal and debugging often means using Devel, which ships with some
 very useful functions like dpm(), kpr(), dpq() and more for outputting debug stuff,
 but these </summary>
-  </entry>
-  <entry>
-    <title>Drupal&amp;#58; EntityMetadataWrapper auto-completing code</title>
-    <link rel="alternate" href="http://justsomegeek.com/2015/06/08/drupal-entitymetadatawrapper-auto-completing-code/"/>
-    <id>http://justsomegeek.com/2015/06/08/drupal-entitymetadatawrapper-auto-completing-code/</id>
-    <published>2015-06-08T22:42:00+02:00</published>
-    <updated>2015-06-09T09:34:29+02:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> Using entity_metadata_wrapper() from the Entity API module has a lot of advantages discussed all over the internet, but it has been bugging me for quite some </summary>
   </entry>
 </feed>
