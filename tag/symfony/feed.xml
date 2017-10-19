@@ -5,10 +5,23 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/symfony/feed.xml" rel="self"/>
-  <updated>2017-10-09T23:06:00+02:00</updated>
+  <updated>2017-10-19T19:58:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>PHPUnit&amp;#58; Mocking external data provider in functional tests</title>
+    <link rel="alternate" href="http://justsomegeek.com/2017/10/19/phpunit-mocking-external-data-provider-in-functional-tests/"/>
+    <id>http://justsomegeek.com/2017/10/19/phpunit-mocking-external-data-provider-in-functional-tests/</id>
+    <published>2017-10-19T19:58:00+02:00</published>
+    <updated>2017-10-19T21:14:38+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Mocking is a common thing in the world of automated testing, nothing to write
+home about. Nevertheless, I decided to document how to do it in Symfony with
+PHPUnit </summary>
+  </entry>
   <entry>
     <title>OAuth2 Tokens in Postman</title>
     <link rel="alternate" href="http://justsomegeek.com/2017/10/09/oauth2-tokens-postman/"/>
