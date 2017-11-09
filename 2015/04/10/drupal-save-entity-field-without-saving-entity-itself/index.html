@@ -30,7 +30,7 @@
 on <a href='/tag/drupal/'>drupal</a>, <a href='/tag/how-to/'>how-to</a>, <a href='/tag/dev/'>dev</a>
 </section>
 </header>
-<section class='post-content'><p>Drupal provides API for saving entities such as <code>node_save()</code> or <code>user_save()</code>. Functions like this update the whole provided entity, using up a lot of resources. There are scenarios when only one or two  fields need to be updated, e.g. a bulk operation. For such cases, <code>field_attach_update()</code> can be used.
+<section class='post-content'><p>Drupal provides API for saving entities such as <code>node_save()</code> or <code>user_save()</code>. Functions like this <strong>update the whole provided entity, using up a lot of resources</strong>. There are scenarios when only one or two  fields need to be updated, e.g. a bulk operation. For such cases, <code>field_attach_update()</code> can be used.
 I found inspiration on this topic on <a href="https://www.urbaninsight.com/2011/10/24/saving-nodes-fields-without-saving-node-itself">Urban Insight blog by Ki Kim</a> and wanted to try it out in practice.
 Example:</p>
 
@@ -237,7 +237,6 @@ Using <code>field_attach_update()</code>:</p>
     </div>
   </div>
 </div>
-
 </section>
 <footer class='post-footer'>
 <figure class='author-image'>

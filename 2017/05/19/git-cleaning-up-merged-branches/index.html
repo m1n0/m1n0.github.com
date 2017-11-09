@@ -30,19 +30,21 @@
 on <a href='/tag/dev/'>dev</a>, <a href='/tag/git/'>git</a>, <a href='/tag/how-to/'>how-to</a>
 </section>
 </header>
-<section class='post-content'><p>Using some kind of git branching strategy (e.g. <a href="http://nvie.com/posts/a-successful-git-branching-model">GitFLow</a>, <a href="https://guides.github.com/introduction/flow">GitHub Flow</a> or other) normally produces quite a lot of branches. When these do not get merged on you machine, you end up with a lot of stranded branches locally, which can be annoying both when using console or some GUI.</p>
+<section class='post-content'><p>Using some kind of git branching strategy (e.g. <a href="http://nvie.com/posts/a-successful-git-branching-model">GitFLow</a>, <a href="https://guides.github.com/introduction/flow">GitHub Flow</a> or other) normally produces <strong>quite a lot of branches</strong>. When these do not get merged on you machine, you end up with a lot of <strong>stranded branches</strong> locally, which can be annoying both when using console or some GUI.</p>
 
-<p>Here is a simple way of cleaning these branches in bulk, just add this into your git config by running <code>git config -e --global</code>.</p>
+<p>Here is a simple way of <strong>cleaning</strong> these branches in bulk, just add this into your git config by running <code>git config -e --global</code>.</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>[alias]
-    cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+<div class="highlight shell"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="o">[</span><span class="nb">alias</span><span class="o">]</span>
+    cleanup <span class="o">=</span> <span class="s2">"!git branch --merged | grep  -v '</span><span class="se">\\</span><span class="s2">*</span><span class="se">\\</span><span class="s2">|master</span><span class="se">\\</span><span class="s2">|develop' | xargs -n 1 git branch -d"</span>
 </pre></td></tr></tbody></table>
 </div>
 
 <p>Getting rid of stranded branches is then just a matter of running <code>git cleanup</code> in your repository.</p>
 
-<p>There are different flavors of doing this, the one above checks if branch was merged into <code>master</code> or <code>develop</code>, you can adjust it for your needs. Check this <a href="http://stackoverflow.com/questions/6127328/how-can-i-delete-all-git-branches-which-have-been-merged">Stack Overflow thread</a> for more info and discussion.</p>
+<p>There are different flavors of doing this, the one above <strong>deletes branches that have
+already been merged into you current branch</strong> (skips <code>master</code> and <code>develop</code>), but you can adjust it for your needs.
+Check this <a href="http://stackoverflow.com/questions/6127328/how-can-i-delete-all-git-branches-which-have-been-merged">Stack Overflow thread</a> for more info and discussion.</p>
 </section>
 <footer class='post-footer'>
 <figure class='author-image'>

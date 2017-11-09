@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://justsomegeek.com/2015/03/20/how-to-remove-extra-button-spacing-padding-in-firefox/index.html</loc>
-    <lastmod>2015-05-28T23:04:13+02:00</lastmod>
+    <lastmod>2017-11-09T21:55:06+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/2015/03/23/how-to-git-ignore-file-permissions-changes/index.html</loc>
-    <lastmod>2015-05-28T23:04:13+02:00</lastmod>
+    <lastmod>2017-11-09T21:54:47+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/2015/03/27/how-to-keep-shell-connection/index.html</loc>
-    <lastmod>2015-05-28T23:04:13+02:00</lastmod>
+    <lastmod>2017-11-09T21:54:23+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -26,259 +26,271 @@
   </url>
   <url>
     <loc>http://justsomegeek.com/2015/04/10/drupal-save-entity-field-without-saving-entity-itself/index.html</loc>
-    <lastmod>2015-05-28T23:04:13+02:00</lastmod>
+    <lastmod>2017-11-09T21:53:09+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/2015/05/13/drupal-slow-manage-features-page/index.html</loc>
-    <lastmod>2015-05-28T23:04:13+02:00</lastmod>
+    <lastmod>2017-11-09T21:50:04+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/2015/06/08/drupal-entitymetadatawrapper-auto-completing-code/index.html</loc>
-    <lastmod>2015-06-09T09:34:29+02:00</lastmod>
+    <lastmod>2017-11-09T21:48:44+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/2016/05/03/drupal-debugging-to-a-file/index.html</loc>
-    <lastmod>2016-05-03T21:29:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:48:25+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/2016/05/03/how-to-os-x-ad-hoc-batch-resize-images/index.html</loc>
-    <lastmod>2016-05-03T21:31:22+02:00</lastmod>
+    <lastmod>2017-11-09T21:45:25+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/2016/06/18/drupal-open-atrium-alter-message-notification-type/index.html</loc>
-    <lastmod>2016-06-18T14:18:16+02:00</lastmod>
+    <lastmod>2017-11-09T21:44:07+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/2016/07/15/json-compression-using-transpose/index.html</loc>
-    <lastmod>2016-07-15T20:08:44+02:00</lastmod>
+    <lastmod>2017-11-09T21:43:24+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/2017/04/06/hacking-superlux-hd668b-for-better-sound/index.html</loc>
-    <lastmod>2017-04-06T22:48:33+02:00</lastmod>
+    <lastmod>2017-11-09T21:40:14+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/2017/05/19/git-cleaning-up-merged-branches/index.html</loc>
-    <lastmod>2017-05-19T09:27:28+02:00</lastmod>
+    <lastmod>2017-11-09T21:35:12+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/2017/06/29/my-terminal-setup/index.html</loc>
-    <lastmod>2017-06-29T23:37:31+02:00</lastmod>
+    <lastmod>2017-11-09T12:02:24+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/2017/10/09/oauth2-tokens-postman/index.html</loc>
-    <lastmod>2017-10-10T00:10:31+02:00</lastmod>
+    <lastmod>2017-11-09T11:49:04+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/2017/10/19/phpunit-mocking-external-data-provider-in-functional-tests/index.html</loc>
-    <lastmod>2017-10-19T22:13:59+02:00</lastmod>
+    <lastmod>2017-11-09T12:05:28+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://justsomegeek.com/2017/11/09/empty-git-commit/index.html</loc>
+    <lastmod>2017-11-09T21:14:03+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://justsomegeek.com/2017/11/09/symfony-roles-and-permissions-in-configuration/index.html</loc>
+    <lastmod>2017-11-09T11:05:01+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/author/m1n0/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/dev/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/front-end/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/how-to/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/testing/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/drupal/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/features/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/performance/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/debugging/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/os-x/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/images/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/resizing/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/photography/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/open-atrium/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/json/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/services/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/optimisation/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/hacking/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/audio/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/hi-fi/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/git/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/symfony/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/oauth/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/page/2/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/page/3/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/author/m1n0/page/2/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/author/m1n0/page/3/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/dev/page/2/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/dev/page/3/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://justsomegeek.com/tag/how-to/page/2/index.html</loc>
-    <lastmod>2017-10-19T22:14:35+02:00</lastmod>
+    <lastmod>2017-11-09T21:58:10+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

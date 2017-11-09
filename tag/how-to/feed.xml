@@ -5,7 +5,7 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/how-to/feed.xml" rel="self"/>
-  <updated>2017-10-19T19:58:00+02:00</updated>
+  <updated>2017-11-09T10:53:00+01:00</updated>
   <author>
     <name>m1n0</name>
   </author>
@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://justsomegeek.com/2017/06/29/my-terminal-setup/"/>
     <id>http://justsomegeek.com/2017/06/29/my-terminal-setup/</id>
     <published>2017-06-29T22:48:00+02:00</published>
-    <updated>2017-06-29T23:37:31+02:00</updated>
+    <updated>2017-11-09T12:02:24+01:00</updated>
     <author>
       <name>m1n0</name>
     </author>
@@ -31,7 +31,7 @@ a small blog post about it.
     <link rel="alternate" href="http://justsomegeek.com/2017/05/19/git-cleaning-up-merged-branches/"/>
     <id>http://justsomegeek.com/2017/05/19/git-cleaning-up-merged-branches/</id>
     <published>2017-05-19T08:07:00+02:00</published>
-    <updated>2017-05-19T09:27:28+02:00</updated>
+    <updated>2017-11-09T21:35:12+01:00</updated>
     <author>
       <name>m1n0</name>
     </author>
@@ -42,11 +42,11 @@ a small blog post about it.
     <link rel="alternate" href="http://justsomegeek.com/2016/05/03/how-to-os-x-ad-hoc-batch-resize-images/"/>
     <id>http://justsomegeek.com/2016/05/03/how-to-os-x-ad-hoc-batch-resize-images/</id>
     <published>2016-05-03T21:12:00+02:00</published>
-    <updated>2016-05-03T21:31:22+02:00</updated>
+    <updated>2017-11-09T21:45:25+01:00</updated>
     <author>
       <name>m1n0</name>
     </author>
-    <summary type="html"> I am by no means a photographer who generates thousands of pictures per year
+    <summary type="html"> I am by no means any photographer who generates thousands of pictures per year
 and has apps and workflows around all that, but a need to batch resize
 big pictures </summary>
   </entry>
@@ -55,7 +55,7 @@ big pictures </summary>
     <link rel="alternate" href="http://justsomegeek.com/2015/05/13/drupal-slow-manage-features-page/"/>
     <id>http://justsomegeek.com/2015/05/13/drupal-slow-manage-features-page/</id>
     <published>2015-05-13T20:15:00+02:00</published>
-    <updated>2015-05-28T23:04:13+02:00</updated>
+    <updated>2017-11-09T21:50:04+01:00</updated>
     <author>
       <name>m1n0</name>
     </author>
@@ -66,7 +66,7 @@ big pictures </summary>
     <link rel="alternate" href="http://justsomegeek.com/2015/04/10/drupal-save-entity-field-without-saving-entity-itself/"/>
     <id>http://justsomegeek.com/2015/04/10/drupal-save-entity-field-without-saving-entity-itself/</id>
     <published>2015-04-10T23:27:00+02:00</published>
-    <updated>2015-05-28T23:04:13+02:00</updated>
+    <updated>2017-11-09T21:53:09+01:00</updated>
     <author>
       <name>m1n0</name>
     </author>
@@ -77,7 +77,7 @@ big pictures </summary>
     <link rel="alternate" href="http://justsomegeek.com/2015/03/27/how-to-keep-shell-connection/"/>
     <id>http://justsomegeek.com/2015/03/27/how-to-keep-shell-connection/</id>
     <published>2015-03-27T22:14:00+01:00</published>
-    <updated>2015-05-28T23:04:13+02:00</updated>
+    <updated>2017-11-09T21:54:23+01:00</updated>
     <author>
       <name>m1n0</name>
     </author>

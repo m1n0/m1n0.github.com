@@ -5,16 +5,30 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/dev/feed.xml" rel="self"/>
-  <updated>2017-10-19T19:58:00+02:00</updated>
+  <updated>2017-11-09T10:53:00+01:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Empty GIT commit</title>
+    <link rel="alternate" href="http://justsomegeek.com/2017/11/09/empty-git-commit/"/>
+    <id>http://justsomegeek.com/2017/11/09/empty-git-commit/</id>
+    <published>2017-11-09T10:53:00+01:00</published>
+    <updated>2017-11-09T21:14:03+01:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Empty commits in git make sense is some scenarios, you might use them to trigger
+workflows, builds, test commit hooks etc… 
+
+ To create an empty commit, simply </summary>
+  </entry>
   <entry>
     <title>PHPUnit&amp;#58; Mocking external data provider in functional tests</title>
     <link rel="alternate" href="http://justsomegeek.com/2017/10/19/phpunit-mocking-external-data-provider-in-functional-tests/"/>
     <id>http://justsomegeek.com/2017/10/19/phpunit-mocking-external-data-provider-in-functional-tests/</id>
     <published>2017-10-19T19:58:00+02:00</published>
-    <updated>2017-10-19T22:13:59+02:00</updated>
+    <updated>2017-11-09T12:05:28+01:00</updated>
     <author>
       <name>m1n0</name>
     </author>
@@ -27,7 +41,7 @@ PHPUnit </summary>
     <link rel="alternate" href="http://justsomegeek.com/2017/10/09/oauth2-tokens-postman/"/>
     <id>http://justsomegeek.com/2017/10/09/oauth2-tokens-postman/</id>
     <published>2017-10-09T23:06:00+02:00</published>
-    <updated>2017-10-10T00:10:31+02:00</updated>
+    <updated>2017-11-09T11:49:04+01:00</updated>
     <author>
       <name>m1n0</name>
     </author>
@@ -40,7 +54,7 @@ scenarios </summary>
     <link rel="alternate" href="http://justsomegeek.com/2017/06/29/my-terminal-setup/"/>
     <id>http://justsomegeek.com/2017/06/29/my-terminal-setup/</id>
     <published>2017-06-29T22:48:00+02:00</published>
-    <updated>2017-06-29T23:37:31+02:00</updated>
+    <updated>2017-11-09T12:02:24+01:00</updated>
     <author>
       <name>m1n0</name>
     </author>
@@ -57,7 +71,7 @@ a small blog post about it.
     <link rel="alternate" href="http://justsomegeek.com/2017/05/19/git-cleaning-up-merged-branches/"/>
     <id>http://justsomegeek.com/2017/05/19/git-cleaning-up-merged-branches/</id>
     <published>2017-05-19T08:07:00+02:00</published>
-    <updated>2017-05-19T09:27:28+02:00</updated>
+    <updated>2017-11-09T21:35:12+01:00</updated>
     <author>
       <name>m1n0</name>
     </author>
@@ -68,25 +82,12 @@ a small blog post about it.
     <link rel="alternate" href="http://justsomegeek.com/2016/07/15/json-compression-using-transpose/"/>
     <id>http://justsomegeek.com/2016/07/15/json-compression-using-transpose/</id>
     <published>2016-07-15T18:09:00+02:00</published>
-    <updated>2016-07-15T20:08:44+02:00</updated>
+    <updated>2017-11-09T21:43:24+01:00</updated>
     <author>
       <name>m1n0</name>
     </author>
     <summary type="html"> I stumbled upon a blog post about compressing JSON data by rotating it 90 degrees. This caught my eye, so I decided to have a play with it. 
 
  Malc (the author </summary>
-  </entry>
-  <entry>
-    <title>Drupal&amp;#58; Open Atrium alter Message Notification type</title>
-    <link rel="alternate" href="http://justsomegeek.com/2016/06/18/drupal-open-atrium-alter-message-notification-type/"/>
-    <id>http://justsomegeek.com/2016/06/18/drupal-open-atrium-alter-message-notification-type/</id>
-    <published>2016-06-18T14:07:00+02:00</published>
-    <updated>2016-06-18T14:18:16+02:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> Recently I needed to send Created message instead of Updated when editors
-publish node in Open Atrium.
-This is how you can simply alter message type, which is </summary>
   </entry>
 </feed>

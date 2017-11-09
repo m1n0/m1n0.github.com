@@ -5,7 +5,7 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/os-x/feed.xml" rel="self"/>
-  <updated>2017-10-19T19:58:00+02:00</updated>
+  <updated>2017-11-09T10:53:00+01:00</updated>
   <author>
     <name>m1n0</name>
   </author>
@@ -14,11 +14,11 @@
     <link rel="alternate" href="http://justsomegeek.com/2016/05/03/how-to-os-x-ad-hoc-batch-resize-images/"/>
     <id>http://justsomegeek.com/2016/05/03/how-to-os-x-ad-hoc-batch-resize-images/</id>
     <published>2016-05-03T21:12:00+02:00</published>
-    <updated>2016-05-03T21:31:22+02:00</updated>
+    <updated>2017-11-09T21:45:25+01:00</updated>
     <author>
       <name>m1n0</name>
     </author>
-    <summary type="html"> I am by no means a photographer who generates thousands of pictures per year
+    <summary type="html"> I am by no means any photographer who generates thousands of pictures per year
 and has apps and workflows around all that, but a need to batch resize
 big pictures </summary>
   </entry>

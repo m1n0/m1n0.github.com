@@ -33,9 +33,9 @@ on <a href='/tag/dev/'>dev</a>, <a href='/tag/how-to/'>how-to</a>
 <section class='post-content'><p>It happens too often that I get disconnected from a shell connection after a while of inactivity with message <code>Write failed: Broken pipe</code>.
 To prevent this, simply put:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>Host *
-    ServerAliveInterval 30
+<div class="highlight shell"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre>Host <span class="k">*</span>
+    ServerAliveInterval 30                 
 </pre></td></tr></tbody></table>
 </div>
 

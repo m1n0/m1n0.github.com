@@ -5,16 +5,30 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/git/feed.xml" rel="self"/>
-  <updated>2017-10-19T19:58:00+02:00</updated>
+  <updated>2017-11-09T10:53:00+01:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Empty GIT commit</title>
+    <link rel="alternate" href="http://justsomegeek.com/2017/11/09/empty-git-commit/"/>
+    <id>http://justsomegeek.com/2017/11/09/empty-git-commit/</id>
+    <published>2017-11-09T10:53:00+01:00</published>
+    <updated>2017-11-09T21:14:03+01:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Empty commits in git make sense is some scenarios, you might use them to trigger
+workflows, builds, test commit hooks etc… 
+
+ To create an empty commit, simply </summary>
+  </entry>
   <entry>
     <title>Git&amp;#58; Cleaning up merged branches</title>
     <link rel="alternate" href="http://justsomegeek.com/2017/05/19/git-cleaning-up-merged-branches/"/>
     <id>http://justsomegeek.com/2017/05/19/git-cleaning-up-merged-branches/</id>
     <published>2017-05-19T08:07:00+02:00</published>
-    <updated>2017-05-19T09:27:28+02:00</updated>
+    <updated>2017-11-09T21:35:12+01:00</updated>
     <author>
       <name>m1n0</name>
     </author>

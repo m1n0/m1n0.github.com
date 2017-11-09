@@ -1813,17 +1813,43 @@ body {
   font-size: 1.7rem;
   line-height: 1.65em; }
 
+h1 {
+  font-size: 4.5rem; }
+
+.no-cover.main-header {
+  max-height: initial !important;
+  min-height: initial !important;
+  height: 250px;
+  padding: 0; }
+  @media only screen and (max-width: 900px) {
+    .no-cover.main-header {
+      height: 200px; } }
+  @media only screen and (max-width: 500px) {
+    .no-cover.main-header {
+      height: 160px; } }
+
 pre {
-  background: transparent;
   border-style: none;
-  padding: initial; }
+  border-radius: 0;
+  font-size: 0.8em; }
 
-td.gutter {
-  display: none; }
+td.gutter pre {
+  background-color: #808080 !important;
+  color: #e6e6e6;
+  font-size: 0.72em;
+  padding: 10px 6px 10px 2px; }
 
-.code pre {
-  white-space: pre-wrap;
-  font-size: 0.75em; }
+.highlight {
+  overflow-x: scroll;
+  margin-bottom: 1.5em; }
+  .highlight table {
+    margin: 0; }
+
+.post-content img.no-stretch {
+  max-width: 75%; }
+  @media only screen and (max-width: 1024px) {
+    .post-content img.no-stretch {
+      max-width: 100%; } }
 
 #data > div {
   width: 48%;
@@ -1846,3 +1872,6 @@ td.gutter {
 .clearfix {
   zoom: 1;
   /* For IE 6/7 (trigger hasLayout) */ }
+
+.post {
+  max-width: 980px; }

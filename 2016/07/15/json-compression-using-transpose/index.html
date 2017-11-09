@@ -40,29 +40,35 @@ on <a href='/tag/dev/'>dev</a>, <a href='/tag/json/'>json</a>, <a href='/tag/ser
 
 <p>I generated 1000 random records with three keys: name, company and country and tried rotating them so that input like this:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="highlight php"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
 4
-5</pre></td><td class="code"><pre>$input = [
-["name" =&gt; "Jeffrey Scott", "company" =&gt; "Rhyloo", "country" =&gt; "Indonesia"],
-["name" =&gt; "Robert Hayes", "company" =&gt; "Roodel", "country" =&gt; "Brazil"],
-["name" =&gt; "Juan Wells", "company" =&gt; "Jabberstorm", "country" =&gt; "Cape Verde"],
-];
+5
+6
+7</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
+
+<span class="nv">$input</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"Jeffrey Scott"</span><span class="p">,</span> <span class="s2">"company"</span> <span class="o">=&gt;</span> <span class="s2">"Rhyloo"</span><span class="p">,</span> <span class="s2">"country"</span> <span class="o">=&gt;</span> <span class="s2">"Indonesia"</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"Robert Hayes"</span><span class="p">,</span> <span class="s2">"company"</span> <span class="o">=&gt;</span> <span class="s2">"Roodel"</span><span class="p">,</span> <span class="s2">"country"</span> <span class="o">=&gt;</span> <span class="s2">"Brazil"</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"Juan Wells"</span><span class="p">,</span> <span class="s2">"company"</span> <span class="o">=&gt;</span> <span class="s2">"Jabberstorm"</span><span class="p">,</span> <span class="s2">"country"</span> <span class="o">=&gt;</span> <span class="s2">"Cape Verde"</span><span class="p">],</span>
+<span class="p">];</span>
 </pre></td></tr></tbody></table>
 </div>
 
 <p>Gets converted into something like this:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="highlight php"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
 4
-5</pre></td><td class="code"><pre>$output = [
-    'name' =&gt; ['Jeffrey Scott', 'Robert Hayes', 'Juan Wells'],
-    'company' =&gt; ['Rhyloo', 'Roodel', 'Jabberstorm'],
-    'country' =&gt; ['Indonesia', 'Brazil', 'Cape Verde'],
-];
+5
+6</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
+<span class="nv">$output</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'Jeffrey Scott'</span><span class="p">,</span> <span class="s1">'Robert Hayes'</span><span class="p">,</span> <span class="s1">'Juan Wells'</span><span class="p">],</span>
+    <span class="s1">'company'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'Rhyloo'</span><span class="p">,</span> <span class="s1">'Roodel'</span><span class="p">,</span> <span class="s1">'Jabberstorm'</span><span class="p">],</span>
+    <span class="s1">'country'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'Indonesia'</span><span class="p">,</span> <span class="s1">'Brazil'</span><span class="p">,</span> <span class="s1">'Cape Verde'</span><span class="p">],</span>
+<span class="p">];</span>
 </pre></td></tr></tbody></table>
 </div>
 
@@ -70,7 +76,7 @@ on <a href='/tag/dev/'>dev</a>, <a href='/tag/json/'>json</a>, <a href='/tag/ser
 
 <p>Here is an example run output:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="highlight shell"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
 4
@@ -145,7 +151,7 @@ Size: 0.6040061633282
 Gzipped size: 0.89371980676328
 
 
-Recursive transpose (keys are not preserved, comparing to no-transpose run):
+Recursive transpose <span class="o">(</span>keys are not preserved, comparing to no-transpose run<span class="o">)</span>:
 --- Encoding to JSON transposed: ---
 Time elapsed: 4.4822692871094E-5 s
 JSON size: 365 B
@@ -175,7 +181,7 @@ Size: 0.55473745696016
 Gzipped size: 0.84429588095752
 
 
-Recursive transpose (keys are not preserved, comparing to no-transpose run):
+Recursive transpose <span class="o">(</span>keys are not preserved, comparing to no-transpose run<span class="o">)</span>:
 --- Encoding to JSON transposed: ---
 Time elapsed: 0.0015218257904053 s
 JSON size: 36062 B

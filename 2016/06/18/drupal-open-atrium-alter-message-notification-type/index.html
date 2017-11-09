@@ -30,8 +30,8 @@
 on <a href='/tag/drupal/'>drupal</a>, <a href='/tag/dev/'>dev</a>, <a href='/tag/open-atrium/'>open atrium</a>
 </section>
 </header>
-<section class='post-content'><p>Recently I needed to send Created message instead of Updated when editors
-publish node in Open Atrium.
+<section class='post-content'><p>Recently I needed to send <strong>Created message</strong> instead of Updated when editors
+publish node in <strong>Open Atrium</strong>.
 This is how you can simply alter message type, which is subsequently passed
 into <code>oa_messages_create</code> function and correctly picks up the correct Message
 type and all it’s arguments:</p>
@@ -48,19 +48,23 @@ type and all it’s arguments:</p>
 10
 11
 12
-13</pre></td><td class="code"><pre>function my_module_oa_messages_type_alter(<span class="err">&amp;</span>$message_type, <span class="err">&amp;</span>$context) {
-  if (isset($context['entity'])) {
-    // Change notification type to "created" when publishing content.
-    if (isset($entity-&gt;original)) {
-      if ($entity-&gt;original-&gt;status == 0 <span class="err">&amp;&amp;</span> $entity-&gt;status == 1) {
-        $message_type = 'oa_create';
-        // Set the context uid as oa_create uses entity autor uid
-        // instead of current user uid
-        $context['uid'] = $entity-&gt;uid;
-      }
-    }
-  }
-}
+13
+14
+15</pre></td><td class="code"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">function</span> <span class="nf">my_module_oa_messages_type_alter</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$message_type</span><span class="p">,</span> <span class="o">&amp;</span><span class="nv">$context</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$context</span><span class="p">[</span><span class="s1">'entity'</span><span class="p">]))</span> <span class="p">{</span>
+    <span class="c1">// Change notification type to "created" when publishing content.
+</span>    <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">original</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">original</span><span class="o">-&gt;</span><span class="na">status</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">status</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$message_type</span> <span class="o">=</span> <span class="s1">'oa_create'</span><span class="p">;</span>
+        <span class="c1">// Set the context uid as oa_create uses entity autor uid
+</span>        <span class="c1">// instead of current user uid
+</span>        <span class="nv">$context</span><span class="p">[</span><span class="s1">'uid'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">uid</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </pre></td></tr></tbody></table>
 </div>
 </section>

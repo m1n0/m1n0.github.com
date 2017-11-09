@@ -34,13 +34,13 @@ on <a href='/tag/dev/'>dev</a>, <a href='/tag/front-end/'>front-end</a>, <a href
 when Mozilla Firefox added unexpected padding to my html buttons. After short research I found a simple solution to fix
 this odd behaviour:</p>
 
-<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<div class="highlight css"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
-4</pre></td><td class="code"><pre>button::-moz-focus-inner {
-    padding: 0;
-    border: 0
-}
+4</pre></td><td class="code"><pre><span class="nt">button</span><span class="nd">::-moz-focus-inner</span> <span class="p">{</span>            
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">0</span>
+<span class="p">}</span>
 </pre></td></tr></tbody></table>
 </div>
 </section>
