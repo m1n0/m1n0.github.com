@@ -38,6 +38,11 @@ workflows, builds, test commit hooks</strong> etc…</p>
 <div class="highlight shell"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>git commit --allow-empty -m <span class="s2">"Trigger CI build"</span>
 </pre></td></tr></tbody></table>
 </div>
+
+<p>Example use from my experience: automated server deploy fails because of server misconfiguration,
+fixing it produces no change in repository. CI might have a button to trigger
+rebuild manually, but empty commit is often simpler and quicker, and more importantly,
+consistent across environments.</p>
 </section>
 <footer class='post-footer'>
 <figure class='author-image'>
