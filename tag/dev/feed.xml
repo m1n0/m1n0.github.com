@@ -5,10 +5,24 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/dev/feed.xml" rel="self"/>
-  <updated>2017-11-09T10:53:00+01:00</updated>
+  <updated>2017-11-09T22:37:00+01:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Why and how I started learning Python and Machine Learning pt.1</title>
+    <link rel="alternate" href="http://justsomegeek.com/2017/11/09/why-and-how-i-started-learning-python-and-machine-learning-pt-1/"/>
+    <id>http://justsomegeek.com/2017/11/09/why-and-how-i-started-learning-python-and-machine-learning-pt-1/</id>
+    <published>2017-11-09T22:37:00+01:00</published>
+    <updated>2017-11-20T13:20:49+01:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> why 
+
+ Python and ML together? PHP web development is my current day job, but I have
+been looking into expanding my horizons for some time now. I would not dare </summary>
+  </entry>
   <entry>
     <title>Empty GIT commit</title>
     <link rel="alternate" href="http://justsomegeek.com/2017/11/09/empty-git-commit/"/>
@@ -76,18 +90,5 @@ a small blog post about it.
       <name>m1n0</name>
     </author>
     <summary type="html"> Using some kind of git branching strategy (e.g. GitFLow, GitHub Flow or other) normally produces quite a lot of branches. When these do not get merged on you </summary>
-  </entry>
-  <entry>
-    <title>JSON compression using transpose</title>
-    <link rel="alternate" href="http://justsomegeek.com/2016/07/15/json-compression-using-transpose/"/>
-    <id>http://justsomegeek.com/2016/07/15/json-compression-using-transpose/</id>
-    <published>2016-07-15T18:09:00+02:00</published>
-    <updated>2017-11-09T21:43:24+01:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> I stumbled upon a blog post about compressing JSON data by rotating it 90 degrees. This caught my eye, so I decided to have a play with it. 
-
- Malc (the author </summary>
   </entry>
 </feed>

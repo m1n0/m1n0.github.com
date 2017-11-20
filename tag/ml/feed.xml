@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Just Some Geek: ML</title>
+  <subtitle>Posts tagged with ML</subtitle>
+  <id>http://justsomegeek.com</id>
+  <link href="http://justsomegeek.com"/>
+  <link href="http://justsomegeek.com/tag/ml/feed.xml" rel="self"/>
+  <updated>2017-11-09T22:37:00+01:00</updated>
+  <author>
+    <name>m1n0</name>
+  </author>
+  <entry>
+    <title>Why and how I started learning Python and Machine Learning pt.1</title>
+    <link rel="alternate" href="http://justsomegeek.com/2017/11/09/why-and-how-i-started-learning-python-and-machine-learning-pt-1/"/>
+    <id>http://justsomegeek.com/2017/11/09/why-and-how-i-started-learning-python-and-machine-learning-pt-1/</id>
+    <published>2017-11-09T22:37:00+01:00</published>
+    <updated>2017-11-20T13:20:49+01:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> why 
+
+ Python and ML together? PHP web development is my current day job, but I have
+been looking into expanding my horizons for some time now. I would not dare </summary>
+  </entry>
+</feed>
