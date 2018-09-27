@@ -5,10 +5,21 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/feed.xml" rel="self"/>
-  <updated>2017-11-19T22:37:00+01:00</updated>
+  <updated>2018-08-26T15:35:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Simple macOS hacks I use</title>
+    <link rel="alternate" href="http://justsomegeek.com/2018/08/26/simple-macos-hacks-i-use/"/>
+    <id>http://justsomegeek.com/2018/08/26/simple-macos-hacks-i-use/</id>
+    <published>2018-08-26T15:35:00+02:00</published>
+    <updated>2018-09-27T11:10:09+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Some of us like to customise the user experience of systems and tools we use - changing themes, fonts, ordering etc. This is my current list of things I like </summary>
+  </entry>
   <entry>
     <title>Why and how I started learning Python and Machine Learning pt.1</title>
     <link rel="alternate" href="http://justsomegeek.com/2017/11/19/why-and-how-i-started-learning-python-and-machine-learning-pt-1/"/>
@@ -79,16 +90,5 @@ a small blog post about it.
 
   
 </summary>
-  </entry>
-  <entry>
-    <title>Git&amp;#58; Cleaning up merged branches</title>
-    <link rel="alternate" href="http://justsomegeek.com/2017/05/19/git-cleaning-up-merged-branches/"/>
-    <id>http://justsomegeek.com/2017/05/19/git-cleaning-up-merged-branches/</id>
-    <published>2017-05-19T08:07:00+02:00</published>
-    <updated>2017-11-09T21:35:12+01:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> Using some kind of git branching strategy (e.g. GitFLow, GitHub Flow or other) normally produces quite a lot of branches. When these do not get merged on you </summary>
   </entry>
 </feed>

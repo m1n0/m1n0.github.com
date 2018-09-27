@@ -5,10 +5,21 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/hacking/feed.xml" rel="self"/>
-  <updated>2017-11-19T22:37:00+01:00</updated>
+  <updated>2018-08-26T15:35:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Simple macOS hacks I use</title>
+    <link rel="alternate" href="http://justsomegeek.com/2018/08/26/simple-macos-hacks-i-use/"/>
+    <id>http://justsomegeek.com/2018/08/26/simple-macos-hacks-i-use/</id>
+    <published>2018-08-26T15:35:00+02:00</published>
+    <updated>2018-09-27T11:10:09+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Some of us like to customise the user experience of systems and tools we use - changing themes, fonts, ordering etc. This is my current list of things I like </summary>
+  </entry>
   <entry>
     <title>Hacking Superlux HD668B for better sound</title>
     <link rel="alternate" href="http://justsomegeek.com/2017/04/06/hacking-superlux-hd668b-for-better-sound/"/>

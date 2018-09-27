@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Just Some Geek: Simple macOS hacks I use</title>
+<meta content='Some of us like to customise the user experience of systems and tools we use - changing themes, fonts, ordering etc. This is my current list of things' name='description'>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='True' name='HandheldFriendly'>
+<meta content='5E77B5EC9AEF4790B50D44B630FEB118' name='msvalidate.01'>
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+<link href="/images/favicon.ico" rel="icon" type="image/ico" />
+<link href="/stylesheets/application.css" rel="stylesheet" />
+<link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
+</head>
+<body class='post-template'>
+<header class='main-header no-cover post-head'>
+<nav class='main-nav clearfix'>
+<a class='back-button icon-arrow-left' href='/'>Home</a>
+<a class='subscribe-button icon-feed' href='/feed.xml'>Subscribe</a>
+</nav>
+</header>
+<main class='content' role='main'>
+<article class='post'>
+<header class='post-header'>
+<h1 class='post-title'>Simple macOS hacks I use</h1>
+<section class='post-meta'>
+<time class='post-date' datetime='2018-08-26'>
+26 August 2018
+</time>
+on <a href='/tag/hacking/'>hacking</a>
+</section>
+</header>
+<section class='post-content'><p>Some of us like to <strong>customise the user experience</strong> of systems and tools we use - changing themes, fonts, ordering etc. This is my current list of things I like to customise in macOS <strong>for even better day-to-day experience</strong>, and serves as an archive for me to remember what I changed.</p>
+
+<h4 id="the-hacks">the Hacks</h4>
+<p><strong>disable Dashboard</strong><br />
+This disables built-in Dashboard completely, I never use it, so why not reclaim a tiny bit of resources.<br />
+<code>defaults write com.apple.dashboard mcx-disabled -boolean TRUE; killall Dock</code></p>
+
+<p><strong>no delay Dock</strong><br />
+When you use autohiding Dock, it hesitates a bit when you approach the bottom of the screen before showing up. I imagine this is so that casual users don’t get frustrated when they approach it accidentally, but I find it annoying, so I want it disabled.<br />
+<code>defaults write com.apple.dock autohide-delay -float 0; killall Dock</code></p>
+
+<p><strong>faster Dock transition</strong><br />
+Applies for autohiding Dock again, the animation is a bit slow to my liking, so I adjusted it. My example here sets it to 0.3s, feel free to change it to your liking.<br />
+<code>defaults write com.apple.dock autohide-time-modifier -float 0.3; killall Dock</code></p>
+
+<p><strong>show full path in the Finder title</strong><br />
+This does pretty much the same job as the built-in path bar, but I find that as ineffective use of space, and it’s possible to show the path in Finder title, so I why not use that.<br />
+<code>defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES; killall Finder</code></p>
+
+<p><strong>Mojave non-retina displays font fix</strong><br />
+This fixes font aliasing for non-retina displays on Mojave (needs a restart).<br />
+<code>defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO</code></p>
+
+<p><strong>disable boot chime</strong><br />
+It’s so annoying in quiet places…I cannot believe Apple still does not allow to disable it in settings.<br />
+<code>sudo nvram SystemAudioVolume=%00</code></p>
+
+<p><strong>show library folder</strong><br />
+If you like to dig into your Library files often:<br />
+<code>chflags nohidden ~/Library</code></p>
+
+<p>If this doesnt work, open Finder in <code>~</code>, use <code>View</code> menu -&gt; <code>View Options</code> -&gt; <code>Show Library Folder</code></p>
+
+<p><strong>allow tab in all modals</strong><br />
+Using tab key to cycle through all buttons in modal windows.<br />
+<code>defaults write NSGlobalDomain AppleKeyboardUIMode -int 3</code></p>
+
+<p><strong>enable Quicklook for unsupported files</strong><br />
+markdown - <a href="https://github.com/toland/qlmarkdown">QLMarkdown generator</a><br />
+yaml - <a href="http://www.evanlovely.com/utilities/quicklook-yaml/">Quicklook YAML</a></p>
+
+<p>Download the plugins and put the respective <code>*.qlgenerator</code> in either <code>~/Library/QuickLook</code> (for current user) or <code>/Library/QuickLook</code> (for all users).</p>
+
+<p>Reload the plugins with <code>qlmanage -r</code>.</p>
+
+<p><strong>set ~ as default location for new Finder windows/tabs</strong><br />
+<code>defaults write com.apple.finder NewWindowTarget -string "PfLo"</code><br />
+<code>defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"</code><br />
+<code>killall Finder</code></p>
+
+<p><strong>honourable mentions</strong><br />
+There were other settings that could be overridden, but unfortunately Apple changes these unofficial settings in every version, so <strong>some things get dropped</strong>. I used a setting to have Print and Save dialogues always expanded, alongside with some other settings, but feature I miss the most is <strong>text selection in Quicklook</strong>, that was awesome, especially when combined with extra preview generators mentioned above. Apple, give us <code>com.apple.finder QLEnableTextSelection -bool true</code> back!</p>
+
+<h4 id="credits">credits</h4>
+
+<p>I found these settings in different places over time, some people write blogs about them, some create videos, some post big scripts on github that set everything for them. Here are some recent resources I used:</p>
+
+<ul>
+  <li><a href="https://gist.github.com/matthewmueller/e22d9840f9ea2fee4716">https://gist.github.com/matthewmueller/e22d9840f9ea2fee4716</a></li>
+  <li><a href="https://github.com/mathiasbynens/dotfiles/issues/517">https://github.com/mathiasbynens/dotfiles/issues/517</a></li>
+</ul>
+
+<p><strong>Have fun</strong> discovering new settings, <strong>hacking</strong> and most importantly - not being angry with your computer!</p>
+</section>
+<footer class='post-footer'>
+<figure class='author-image'>
+<a class='img' href='/author/m1n0/' style='background-image: url(https://www.gravatar.com/avatar/3e5e94b17e0afa2a29a1e325f1531759?size=68)'>
+<span class='hidden'>m1n0's Picture</span>
+</a>
+</figure>
+<section class='author'>
+<h4>
+<a href='/author/m1n0/'>m1n0</a>
+</h4>
+<p></p>
+m1n0 is a software engineer passionate about technology, machine learning, music and reading.
+<div class='author-meta'>
+<span class='author-link icon-link'>
+<a href='http://sk.linkedin.com/in/milanlukac'>http://sk.linkedin.com/in/milanlukac</a>
+</span>
+<br>
+<span class='author-link icon-link'>
+<a href='https://github.com/m1n0'>https://github.com/m1n0</a>
+</span>
+</div>
+</section>
+<section class='share'>
+<h4>Share this post</h4>
+<a class='icon-twitter' href='https://twitter.com/share?text=Simple macOS hacks I use&amp;amp;url=http://justsomegeek.com/2018/08/26/simple-macos-hacks-i-use/' onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+<span class='hidden'>Twitter</span>
+</a>
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://justsomegeek.com/2018/08/26/simple-macos-hacks-i-use/' onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+<span class='hidden'>Facebook</span>
+</a>
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://justsomegeek.com/2018/08/26/simple-macos-hacks-i-use/' onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+<span class='hidden'>Google+</span>
+</a>
+</section>
+<section class='disqus'>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+//<![CDATA[
+                  var disqus_shortname = 'm1n0blog';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</section>
+</footer>
+</article>
+</main>
+
+<footer class='site-footer clearfix'>
+<section class='copyright'>
+<a href='/'>Just Some Geek</a>
+&copy;
+2018
+</section>
+<section class='poweredby'>
+Casper theme powered by
+<a href='https://ghost.org'>Ghost</a>
+</section>
+</footer>
+<script src="/javascripts/application.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-61271241-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>
