@@ -5,10 +5,22 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/feed.xml" rel="self"/>
-  <updated>2018-08-26T15:35:00+02:00</updated>
+  <updated>2018-10-05T00:26:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Docker&amp;#58; cleanup unused resources</title>
+    <link rel="alternate" href="http://justsomegeek.com/2018/10/04/docker-cleanup-unused-resources/"/>
+    <id>http://justsomegeek.com/2018/10/04/docker-cleanup-unused-resources/</id>
+    <published>2018-10-05T00:26:00+02:00</published>
+    <updated>2019-02-28T23:49:17+01:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Docker likes to eat up disk space, so having some scripts handy for occasional cleanup is useful. 
+I am storing here what I (currently) use for future reference </summary>
+  </entry>
   <entry>
     <title>Simple macOS hacks I use</title>
     <link rel="alternate" href="http://justsomegeek.com/2018/08/26/simple-macos-hacks-i-use/"/>
@@ -73,22 +85,5 @@ PHPUnit </summary>
     <summary type="html"> I like to use Postman when developing REST APIs. It allows me
 to save, group and share different requests, prepare different payloads to test different
 scenarios </summary>
-  </entry>
-  <entry>
-    <title>My Terminal setup</title>
-    <link rel="alternate" href="http://justsomegeek.com/2017/06/29/my-terminal-setup/"/>
-    <id>http://justsomegeek.com/2017/06/29/my-terminal-setup/</id>
-    <published>2017-06-29T22:48:00+02:00</published>
-    <updated>2017-11-09T12:02:24+01:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> A few friends have asked me about my terminal setup, so I decided to write up
-a small blog post about it. 
-
- This is what my terminal looks like in action: 
-
-  
-</summary>
   </entry>
 </feed>

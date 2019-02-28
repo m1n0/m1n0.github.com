@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Just Some Geek: devops</title>
+  <subtitle>Posts tagged with devops</subtitle>
+  <id>http://justsomegeek.com</id>
+  <link href="http://justsomegeek.com"/>
+  <link href="http://justsomegeek.com/tag/devops/feed.xml" rel="self"/>
+  <updated>2018-10-05T00:26:00+02:00</updated>
+  <author>
+    <name>m1n0</name>
+  </author>
+  <entry>
+    <title>Docker&amp;#58; cleanup unused resources</title>
+    <link rel="alternate" href="http://justsomegeek.com/2018/10/04/docker-cleanup-unused-resources/"/>
+    <id>http://justsomegeek.com/2018/10/04/docker-cleanup-unused-resources/</id>
+    <published>2018-10-05T00:26:00+02:00</published>
+    <updated>2019-02-28T23:49:17+01:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Docker likes to eat up disk space, so having some scripts handy for occasional cleanup is useful. 
+I am storing here what I (currently) use for future reference </summary>
+  </entry>
+</feed>
