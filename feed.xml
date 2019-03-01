@@ -33,6 +33,18 @@ I am storing here what I (currently) use for future reference </summary>
     <summary type="html"> Some of us like to customise the user experience of systems and tools we use - changing themes, fonts, ordering etc. This is my current list of things I like </summary>
   </entry>
   <entry>
+    <title>Symfony&amp;#58; Roles and Permissions in configuration</title>
+    <link rel="alternate" href="http://justsomegeek.com/2018/04/15/symfony-roles-and-permissions-in-configuration/"/>
+    <id>http://justsomegeek.com/2018/04/15/symfony-roles-and-permissions-in-configuration/</id>
+    <published>2018-04-16T00:12:00+02:00</published>
+    <updated>2019-03-01T11:11:27+01:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> There are different approaches to managing roles and permissions on a project,
+ranging from very simple hardcoded checks to fully adjustable database based solutions </summary>
+  </entry>
+  <entry>
     <title>Why and how I started learning Python and Machine Learning pt.1</title>
     <link rel="alternate" href="http://justsomegeek.com/2017/11/19/why-and-how-i-started-learning-python-and-machine-learning-pt-1/"/>
     <id>http://justsomegeek.com/2017/11/19/why-and-how-i-started-learning-python-and-machine-learning-pt-1/</id>
@@ -72,18 +84,5 @@ workflows, builds, test commit hooks etc…
     <summary type="html"> Mocking is a common thing in the world of automated testing, nothing to write
 home about. Nevertheless, I decided to document how to do it in Symfony with
 PHPUnit </summary>
-  </entry>
-  <entry>
-    <title>OAuth2 Tokens in Postman</title>
-    <link rel="alternate" href="http://justsomegeek.com/2017/10/09/oauth2-tokens-postman/"/>
-    <id>http://justsomegeek.com/2017/10/09/oauth2-tokens-postman/</id>
-    <published>2017-10-09T23:06:00+02:00</published>
-    <updated>2017-11-09T11:49:04+01:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> I like to use Postman when developing REST APIs. It allows me
-to save, group and share different requests, prepare different payloads to test different
-scenarios </summary>
   </entry>
 </feed>

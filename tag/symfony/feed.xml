@@ -10,6 +10,18 @@
     <name>m1n0</name>
   </author>
   <entry>
+    <title>Symfony&amp;#58; Roles and Permissions in configuration</title>
+    <link rel="alternate" href="http://justsomegeek.com/2018/04/15/symfony-roles-and-permissions-in-configuration/"/>
+    <id>http://justsomegeek.com/2018/04/15/symfony-roles-and-permissions-in-configuration/</id>
+    <published>2018-04-16T00:12:00+02:00</published>
+    <updated>2019-03-01T11:11:27+01:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> There are different approaches to managing roles and permissions on a project,
+ranging from very simple hardcoded checks to fully adjustable database based solutions </summary>
+  </entry>
+  <entry>
     <title>PHPUnit&amp;#58; Mocking external data provider in functional tests</title>
     <link rel="alternate" href="http://justsomegeek.com/2017/10/19/phpunit-mocking-external-data-provider-in-functional-tests/"/>
     <id>http://justsomegeek.com/2017/10/19/phpunit-mocking-external-data-provider-in-functional-tests/</id>
