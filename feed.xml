@@ -5,10 +5,21 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/feed.xml" rel="self"/>
-  <updated>2018-10-05T00:26:00+02:00</updated>
+  <updated>2019-04-16T20:41:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Why and how I started learning Python and Machine Learning pt.2</title>
+    <link rel="alternate" href="http://justsomegeek.com/2019/04/16/why-and-how-i-started-learning-python-and-machine-learning-pt-2/"/>
+    <id>http://justsomegeek.com/2019/04/16/why-and-how-i-started-learning-python-and-machine-learning-pt-2/</id>
+    <published>2019-04-16T20:41:00+02:00</published>
+    <updated>2019-04-17T18:12:30+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> It has been over a year since I decided to document my python/ML/Data Science learning path online a bit. A lot has happened in the meantime, especially in my </summary>
+  </entry>
   <entry>
     <title>Docker&amp;#58; cleanup unused resources</title>
     <link rel="alternate" href="http://justsomegeek.com/2018/10/04/docker-cleanup-unused-resources/"/>
@@ -71,18 +82,5 @@ been looking into expanding my horizons for some time now. I would not dare </su
 workflows, builds, test commit hooks etc… 
 
  To create an empty commit, simply </summary>
-  </entry>
-  <entry>
-    <title>PHPUnit&amp;#58; Mocking external data provider in functional tests</title>
-    <link rel="alternate" href="http://justsomegeek.com/2017/10/19/phpunit-mocking-external-data-provider-in-functional-tests/"/>
-    <id>http://justsomegeek.com/2017/10/19/phpunit-mocking-external-data-provider-in-functional-tests/</id>
-    <published>2017-10-19T19:58:00+02:00</published>
-    <updated>2017-11-09T12:05:28+01:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> Mocking is a common thing in the world of automated testing, nothing to write
-home about. Nevertheless, I decided to document how to do it in Symfony with
-PHPUnit </summary>
   </entry>
 </feed>

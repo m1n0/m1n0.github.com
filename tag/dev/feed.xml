@@ -5,10 +5,21 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/dev/feed.xml" rel="self"/>
-  <updated>2018-10-05T00:26:00+02:00</updated>
+  <updated>2019-04-16T20:41:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Why and how I started learning Python and Machine Learning pt.2</title>
+    <link rel="alternate" href="http://justsomegeek.com/2019/04/16/why-and-how-i-started-learning-python-and-machine-learning-pt-2/"/>
+    <id>http://justsomegeek.com/2019/04/16/why-and-how-i-started-learning-python-and-machine-learning-pt-2/</id>
+    <published>2019-04-16T20:41:00+02:00</published>
+    <updated>2019-04-17T18:12:30+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> It has been over a year since I decided to document my python/ML/Data Science learning path online a bit. A lot has happened in the meantime, especially in my </summary>
+  </entry>
   <entry>
     <title>Symfony&amp;#58; Roles and Permissions in configuration</title>
     <link rel="alternate" href="http://justsomegeek.com/2018/04/15/symfony-roles-and-permissions-in-configuration/"/>
@@ -74,22 +85,5 @@ PHPUnit </summary>
     <summary type="html"> I like to use Postman when developing REST APIs. It allows me
 to save, group and share different requests, prepare different payloads to test different
 scenarios </summary>
-  </entry>
-  <entry>
-    <title>My Terminal setup</title>
-    <link rel="alternate" href="http://justsomegeek.com/2017/06/29/my-terminal-setup/"/>
-    <id>http://justsomegeek.com/2017/06/29/my-terminal-setup/</id>
-    <published>2017-06-29T22:48:00+02:00</published>
-    <updated>2017-11-09T12:02:24+01:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> A few friends have asked me about my terminal setup, so I decided to write up
-a small blog post about it. 
-
- This is what my terminal looks like in action: 
-
-  
-</summary>
   </entry>
 </feed>

@@ -5,10 +5,21 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/ml/feed.xml" rel="self"/>
-  <updated>2018-10-05T00:26:00+02:00</updated>
+  <updated>2019-04-16T20:41:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Why and how I started learning Python and Machine Learning pt.2</title>
+    <link rel="alternate" href="http://justsomegeek.com/2019/04/16/why-and-how-i-started-learning-python-and-machine-learning-pt-2/"/>
+    <id>http://justsomegeek.com/2019/04/16/why-and-how-i-started-learning-python-and-machine-learning-pt-2/</id>
+    <published>2019-04-16T20:41:00+02:00</published>
+    <updated>2019-04-17T18:12:30+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> It has been over a year since I decided to document my python/ML/Data Science learning path online a bit. A lot has happened in the meantime, especially in my </summary>
+  </entry>
   <entry>
     <title>Why and how I started learning Python and Machine Learning pt.1</title>
     <link rel="alternate" href="http://justsomegeek.com/2017/11/19/why-and-how-i-started-learning-python-and-machine-learning-pt-1/"/>
