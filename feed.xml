@@ -21,6 +21,21 @@
     <summary type="html"> It has been over a year since I decided to document my python/ML/Data Science learning path online a bit. A lot has happened in the meantime, especially in my </summary>
   </entry>
   <entry>
+    <title>ML&amp;#58; Building a simple classifier (Titanic pt.1)</title>
+    <link rel="alternate" href="http://justsomegeek.com/2019/03/14/ml-building-basic-classifier/"/>
+    <id>http://justsomegeek.com/2019/03/14/ml-building-basic-classifier/</id>
+    <published>2019-03-14T21:52:00+01:00</published>
+    <updated>2019-04-18T20:34:31+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> This article is part of Titanic series - a short series on basic ML concepts based on the famous Titanic Kaggle challenge 
+
+ the problem 
+
+ Learning Machine Learning </summary>
+  </entry>
+  <entry>
     <title>Docker&amp;#58; cleanup unused resources</title>
     <link rel="alternate" href="http://justsomegeek.com/2018/10/04/docker-cleanup-unused-resources/"/>
     <id>http://justsomegeek.com/2018/10/04/docker-cleanup-unused-resources/</id>
@@ -68,19 +83,5 @@ ranging from very simple hardcoded checks to fully adjustable database based sol
 
  Python and ML together? PHP web development is my current day job, but I have
 been looking into expanding my horizons for some time now. I would not dare </summary>
-  </entry>
-  <entry>
-    <title>Empty GIT commit</title>
-    <link rel="alternate" href="http://justsomegeek.com/2017/11/09/empty-git-commit/"/>
-    <id>http://justsomegeek.com/2017/11/09/empty-git-commit/</id>
-    <published>2017-11-09T10:53:00+01:00</published>
-    <updated>2017-11-10T06:26:41+01:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> Empty commits in git make sense is some scenarios, you might use them to trigger
-workflows, builds, test commit hooks etc… 
-
- To create an empty commit, simply </summary>
   </entry>
 </feed>

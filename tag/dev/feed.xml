@@ -21,6 +21,21 @@
     <summary type="html"> It has been over a year since I decided to document my python/ML/Data Science learning path online a bit. A lot has happened in the meantime, especially in my </summary>
   </entry>
   <entry>
+    <title>ML&amp;#58; Building a simple classifier (Titanic pt.1)</title>
+    <link rel="alternate" href="http://justsomegeek.com/2019/03/14/ml-building-basic-classifier/"/>
+    <id>http://justsomegeek.com/2019/03/14/ml-building-basic-classifier/</id>
+    <published>2019-03-14T21:52:00+01:00</published>
+    <updated>2019-04-18T20:34:31+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> This article is part of Titanic series - a short series on basic ML concepts based on the famous Titanic Kaggle challenge 
+
+ the problem 
+
+ Learning Machine Learning </summary>
+  </entry>
+  <entry>
     <title>Symfony&amp;#58; Roles and Permissions in configuration</title>
     <link rel="alternate" href="http://justsomegeek.com/2018/04/15/symfony-roles-and-permissions-in-configuration/"/>
     <id>http://justsomegeek.com/2018/04/15/symfony-roles-and-permissions-in-configuration/</id>
@@ -72,18 +87,5 @@ workflows, builds, test commit hooks etc…
     <summary type="html"> Mocking is a common thing in the world of automated testing, nothing to write
 home about. Nevertheless, I decided to document how to do it in Symfony with
 PHPUnit </summary>
-  </entry>
-  <entry>
-    <title>OAuth2 Tokens in Postman</title>
-    <link rel="alternate" href="http://justsomegeek.com/2017/10/09/oauth2-tokens-postman/"/>
-    <id>http://justsomegeek.com/2017/10/09/oauth2-tokens-postman/</id>
-    <published>2017-10-09T23:06:00+02:00</published>
-    <updated>2017-11-09T11:49:04+01:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> I like to use Postman when developing REST APIs. It allows me
-to save, group and share different requests, prepare different payloads to test different
-scenarios </summary>
   </entry>
 </feed>

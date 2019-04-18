@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Just Some Geek: titanic</title>
+  <subtitle>Posts tagged with titanic</subtitle>
+  <id>http://justsomegeek.com</id>
+  <link href="http://justsomegeek.com"/>
+  <link href="http://justsomegeek.com/tag/titanic/feed.xml" rel="self"/>
+  <updated>2019-04-16T20:41:00+02:00</updated>
+  <author>
+    <name>m1n0</name>
+  </author>
+  <entry>
+    <title>ML&amp;#58; Building a simple classifier (Titanic pt.1)</title>
+    <link rel="alternate" href="http://justsomegeek.com/2019/03/14/ml-building-basic-classifier/"/>
+    <id>http://justsomegeek.com/2019/03/14/ml-building-basic-classifier/</id>
+    <published>2019-03-14T21:52:00+01:00</published>
+    <updated>2019-04-18T20:34:31+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> This article is part of Titanic series - a short series on basic ML concepts based on the famous Titanic Kaggle challenge 
+
+ the problem 
+
+ Learning Machine Learning </summary>
+  </entry>
+</feed>

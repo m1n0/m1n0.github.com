@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Just Some Geek: ML&#58; Building a simple classifier (Titanic pt.1)</title>
+<meta content='This article is part of Titanic series - a short series on basic ML concepts based on the famous Titanic Kaggle challenge the problem Learning Machine' name='description'>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='True' name='HandheldFriendly'>
+<meta content='5E77B5EC9AEF4790B50D44B630FEB118' name='msvalidate.01'>
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+<link href="/images/favicon.ico" rel="icon" type="image/ico" />
+<link href="/stylesheets/application.css" rel="stylesheet" />
+<link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
+</head>
+<body class='post-template'>
+<header class='main-header no-cover post-head'>
+<nav class='main-nav clearfix'>
+<a class='back-button icon-arrow-left' href='/'>Home</a>
+<a class='subscribe-button icon-feed' href='/feed.xml'>Subscribe</a>
+</nav>
+</header>
+<main class='content' role='main'>
+<article class='post'>
+<header class='post-header'>
+<h1 class='post-title'>ML&#58; Building a simple classifier (Titanic pt.1)</h1>
+<section class='post-meta'>
+<time class='post-date' datetime='2019-03-14'>
+14 March 2019
+</time>
+on <a href='/tag/ml/'>ML</a>, <a href='/tag/data-science/'>data-science</a>, <a href='/tag/kaggle/'>kaggle</a>, <a href='/tag/dev/'>dev</a>, <a href='/tag/python/'>python</a>, <a href='/tag/titanic/'>titanic</a>
+</section>
+</header>
+<section class='post-content'><p><em>This article is part of <a href="/tag/titanic">Titanic series</a> - a short series on basic ML concepts based on the famous <a href="https://www.kaggle.com/c/titanic">Titanic Kaggle challenge</a></em></p>
+
+<h4 id="the-problem">the problem</h4>
+
+<p>Learning Machine Learning is an intimidating task - there is simply way too much to learn, too many tools, technologies and techniques to grasp. On the other hand, pioneers of the discipline are continuously releasing more and more tools that help with that. Python ecosystem is a great example - in this article we will attempt to solve the <a href="https://www.kaggle.com/c/titanic">Kaggle Titanic challenge</a> using <strong>as little code and knowledge as possible</strong>.</p>
+
+<p>This exercise is about predicting whether people would survive the unfortunate Titanic disaster.</p>
+
+<p>Train data example:
+<img alt="" src="https://res.cloudinary.com/m1n0/image/upload/v1555536395/Screenshot_2019-04-17_at_23.25.45_ydbfst.png" /></p>
+
+<h4 id="the-solution">the solution</h4>
+
+<p>We will jump straight in - I will not do any real data exploration here, we can save that for later - just from opening the input file we can easily pick up the obvious columns that can be (almost) directly used for simple predictions whether a person would survive the disaster or not.</p>
+
+<p>Let’s begin with the simplest - <strong>importing the data</strong>.</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"train.csv"</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"test.csv"</span><span class="p">)</span>                                                  
+</pre></td></tr></tbody></table>
+</div>
+
+<p>We need to <strong>choose</strong> the columns we wish to use for creating the prediction model - i.e. the columns used for predictions. Let’s use the most obvious four - <strong>Fare, Sex, Age and Pclass</strong> (ticket class) and prepare data frames of features and results.</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Fare"</span><span class="p">,</span> <span class="s">"Sex"</span><span class="p">,</span> <span class="s">"Pclass"</span><span class="p">,</span> <span class="s">"Age"</span><span class="p">]</span>
+<span class="n">X_all</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span>
+<span class="n">y_all</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s">"Survived"</span><span class="p">]</span>                                                         
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Brief look at the data shows us that before we continue, we have to change the string <strong>Sex column into a numeric format</strong> - so that the ML math magic can happen. To do that, we can simply use the <code>pd.factorize</code> method from <code>pandas</code> like so:</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="n">train</span><span class="p">[</span><span class="s">"Sex"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s">"Sex"</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>                                    
+<span class="n">test</span><span class="p">[</span><span class="s">"Sex"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s">"Sex"</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Another detail we have to handle before moving on is <strong>missing values</strong> in the Fare and Age columns. For simplicity sake we can fill in the missing values with the average value of the column.</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="n">train</span><span class="p">[</span><span class="s">"Fare"</span><span class="p">]</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s">"Fare"</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">((</span><span class="n">train</span><span class="p">[</span><span class="s">"Fare"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+<span class="n">test</span><span class="p">[</span><span class="s">"Fare"</span><span class="p">]</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s">"Fare"</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">((</span><span class="n">test</span><span class="p">[</span><span class="s">"Fare"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+<span class="n">train</span><span class="p">[</span><span class="s">"Age"</span><span class="p">]</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s">"Age"</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">((</span><span class="n">train</span><span class="p">[</span><span class="s">"Age"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+<span class="n">test</span><span class="p">[</span><span class="s">"Age"</span><span class="p">]</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s">"Age"</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">((</span><span class="n">test</span><span class="p">[</span><span class="s">"Age"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>                          
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Now the <strong>data is ready</strong>, we can proceed and <strong>prepare our training and test sets</strong>. The most common and simple way of doing so is to use the training set which contains the results and splitting it into a train and test part (we will call them <code>X_train</code> and <code>X_test</code> for features sets, and <code>y_train</code> and <code>y_test</code> for the answers). Then we can use these for validating our model, and after we are happy with out model we train on the complete train set and predict on the test set which is missing the “right answers”.</p>
+
+<p>Here we split the train set 80/20.</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Now we can proceed with creating the <strong>classifier</strong>, fitting the data and making our first predictions. We are using one of the basic ML <a href="https://ml-cheatsheet.readthedocs.io/en/latest/logistic_regression.html">Logistic Regression</a> algorithms.</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s">"lbfgs"</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">prediction</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Voila! Our first logistic regression classifier is predicting something! But <strong>what</strong> is it predicting and <strong>how good</strong> are the predictions? We can use a simple <a href="https://en.wikipedia.org/wiki/Confusion_matrix"><strong>Confusion Matrix</strong></a> tool and calculate the <strong>accuracy</strong> of our predictions based on true positives and true negatives.</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">prediction</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"Confusion matrix:</span><span class="se">\n</span><span class="s">{cm}"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"Accuracy: {(cm[1][1] + cm[0][0]) / len(y_test)}"</span><span class="p">)</span>                                 
+</pre></td></tr></tbody></table>
+</div>
+
+<div class="highlight shell"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre>python simplest.py
+Confusion matrix:
+<span class="o">[[</span>94 16]
+ <span class="o">[</span>18 51]]
+Accuracy: 0.8100558659217877                                                                  
+</pre></td></tr></tbody></table>
+</div>
+
+<p>We are getting accuracy on our validation train set of over <strong>81%</strong>! Not bad for such a simple model!</p>
+
+<p>Let’s continue and <strong>fit</strong> on our <strong>whole train set</strong> and <strong>predict</strong> the unknown test values.</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">)</span>  
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">columns</span><span class="p">])</span>                                                     
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Now that the test prediction is done we can <strong>prepare the submission data</strong>.</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="n">submission_df</span> <span class="o">=</span> <span class="p">{</span><span class="s">"PassengerId"</span><span class="p">:</span> <span class="n">test</span><span class="p">[</span><span class="s">"PassengerId"</span><span class="p">],</span> <span class="s">"Survived"</span><span class="p">:</span> <span class="n">prediction</span><span class="p">}</span>
+<span class="n">submission</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">submission_df</span><span class="p">)</span>
+<span class="n">submission</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">f</span><span class="s">"predictions/titanic_simplest.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>                 
+</pre></td></tr></tbody></table>
+</div>
+
+<p><strong>Submitting the generated file to Kaggle scores us a decent 75.1%.</strong></p>
+
+<p><em>Code for this simplest model can be found <a href="https://github.com/m1n0/machine-learning/blob/master/kaggle/titanic/simplest.py">here</a> -it’s 40 lines of code only, including the comments!.</em></p>
+
+<h4 id="improvements">improvements</h4>
+
+<p>There are <strong>many</strong> things one could try to improve on the performance of the classifier, we will look into some of these in next articles:  <br />
+- Use <a href="https://www.kaggle.com/dansbecker/using-categorical-data-with-one-hot-encoding"><strong>One Hot Encoding</strong></a> - a standard approach for categorical data and apply it to categorical columns like <code>Sex</code> or <code>Embarked</code>.<br />
+- <a href="https://www.kdnuggets.com/2018/12/feature-engineering-explained.html"><strong>Feature engineering</strong></a> - extracting and/or combining data from columns to come up with new features that might describe the reality better than the raw data. Example - extract deck information from cabin number, include caluclated family size feature, extract and categorize title, categorize age.<br />
+- Try using <strong>different models</strong> - different models can produce different results as they are <a href="https://hackernoon.com/choosing-the-right-machine-learning-algorithm-68126944ce1f">optimized for different scenarios</a>. Choosing the right algorithm can do wonders.</p>
+
+<p><em>This article is part of <a href="/tag/titanic">Titanic series</a> - a short series on basic ML concepts based on the famous <a href="https://www.kaggle.com/c/titanic">Titanic Kaggle challenge</a></em></p>
+</section>
+<footer class='post-footer'>
+<figure class='author-image'>
+<a class='img' href='/author/m1n0/' style='background-image: url(https://www.gravatar.com/avatar/3e5e94b17e0afa2a29a1e325f1531759?size=68)'>
+<span class='hidden'>m1n0's Picture</span>
+</a>
+</figure>
+<section class='author'>
+<h4>
+<a href='/author/m1n0/'>m1n0</a>
+</h4>
+<p></p>
+m1n0 is a software engineer passionate about technology, machine learning, music and reading.
+<div class='author-meta'>
+<span class='author-link icon-link'>
+<a href='http://sk.linkedin.com/in/milanlukac'>http://sk.linkedin.com/in/milanlukac</a>
+</span>
+<br>
+<span class='author-link icon-link'>
+<a href='https://github.com/m1n0'>https://github.com/m1n0</a>
+</span>
+</div>
+</section>
+<section class='share'>
+<h4>Share this post</h4>
+<a class='icon-twitter' href='https://twitter.com/share?text=ML&amp;#58; Building a simple classifier (Titanic pt.1)&amp;amp;url=http://justsomegeek.com/2019/03/14/ml-building-basic-classifier/' onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+<span class='hidden'>Twitter</span>
+</a>
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://justsomegeek.com/2019/03/14/ml-building-basic-classifier/' onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+<span class='hidden'>Facebook</span>
+</a>
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://justsomegeek.com/2019/03/14/ml-building-basic-classifier/' onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+<span class='hidden'>Google+</span>
+</a>
+</section>
+<section class='disqus'>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+//<![CDATA[
+                  var disqus_shortname = 'm1n0blog';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</section>
+</footer>
+</article>
+</main>
+
+<footer class='site-footer clearfix'>
+<section class='copyright'>
+<a href='/'>Just Some Geek</a>
+&copy;
+2019
+</section>
+<section class='poweredby'>
+Casper theme powered by
+<a href='https://ghost.org'>Ghost</a>
+</section>
+</footer>
+<script src="/javascripts/application.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-61271241-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>
