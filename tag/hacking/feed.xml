@@ -5,10 +5,23 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/hacking/feed.xml" rel="self"/>
-  <updated>2019-04-16T20:41:00+02:00</updated>
+  <updated>2019-06-14T10:37:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Slack desktop dark theme</title>
+    <link rel="alternate" href="http://justsomegeek.com/2019/06/14/slack-desktop-dark-theme/"/>
+    <id>http://justsomegeek.com/2019/06/14/slack-desktop-dark-theme/</id>
+    <published>2019-06-14T10:37:00+02:00</published>
+    <updated>2019-06-14T11:26:41+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> If you love dark themes everywhere as much as I do, you surely have been wondering why Slack still does not support one. 
+
+ Here is a quick tutorial how to use </summary>
+  </entry>
   <entry>
     <title>Simple macOS hacks I use</title>
     <link rel="alternate" href="http://justsomegeek.com/2018/08/26/simple-macos-hacks-i-use/"/>

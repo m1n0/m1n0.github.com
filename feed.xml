@@ -5,10 +5,23 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/feed.xml" rel="self"/>
-  <updated>2019-04-16T20:41:00+02:00</updated>
+  <updated>2019-06-14T10:37:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>Slack desktop dark theme</title>
+    <link rel="alternate" href="http://justsomegeek.com/2019/06/14/slack-desktop-dark-theme/"/>
+    <id>http://justsomegeek.com/2019/06/14/slack-desktop-dark-theme/</id>
+    <published>2019-06-14T10:37:00+02:00</published>
+    <updated>2019-06-14T11:26:41+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> If you love dark themes everywhere as much as I do, you surely have been wondering why Slack still does not support one. 
+
+ Here is a quick tutorial how to use </summary>
+  </entry>
   <entry>
     <title>Why and how I started learning Python and Machine Learning pt.2</title>
     <link rel="alternate" href="http://justsomegeek.com/2019/04/16/why-and-how-i-started-learning-python-and-machine-learning-pt-2/"/>
@@ -25,7 +38,7 @@
     <link rel="alternate" href="http://justsomegeek.com/2019/03/14/ml-building-basic-classifier/"/>
     <id>http://justsomegeek.com/2019/03/14/ml-building-basic-classifier/</id>
     <published>2019-03-14T21:52:00+01:00</published>
-    <updated>2019-04-18T21:00:45+02:00</updated>
+    <updated>2019-04-23T12:35:06+02:00</updated>
     <author>
       <name>m1n0</name>
     </author>
@@ -65,19 +78,5 @@ I am storing here what I (currently) use for future reference </summary>
     </author>
     <summary type="html"> There are different approaches to managing roles and permissions on a project,
 ranging from very simple hardcoded checks to fully adjustable database based solutions </summary>
-  </entry>
-  <entry>
-    <title>Why and how I started learning Python and Machine Learning pt.1</title>
-    <link rel="alternate" href="http://justsomegeek.com/2017/11/19/why-and-how-i-started-learning-python-and-machine-learning-pt-1/"/>
-    <id>http://justsomegeek.com/2017/11/19/why-and-how-i-started-learning-python-and-machine-learning-pt-1/</id>
-    <published>2017-11-19T22:37:00+01:00</published>
-    <updated>2017-11-21T18:53:09+01:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> why 
-
- Python and ML together? PHP web development is my current day job, but I have
-been looking into expanding my horizons for some time now. I would not dare </summary>
   </entry>
 </feed>
