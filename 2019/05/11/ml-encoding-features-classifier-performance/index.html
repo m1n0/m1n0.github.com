@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Just Some Geek: ML&#58; Encoding features and classifier performance (Titanic pt.2)</title>
+<meta content='As we previously mentioned, we will be looking into making our simplest classifier model better. One of the commonly used techniques used is categorical' name='description'>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='True' name='HandheldFriendly'>
+<meta content='5E77B5EC9AEF4790B50D44B630FEB118' name='msvalidate.01'>
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+<link href="/images/favicon.ico" rel="icon" type="image/ico" />
+<link href="/stylesheets/application.css" rel="stylesheet" />
+<link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
+</head>
+<body class='post-template'>
+<header class='main-header no-cover post-head'>
+<nav class='main-nav clearfix'>
+<a class='back-button icon-arrow-left' href='/'>Home</a>
+<a class='subscribe-button icon-feed' href='/feed.xml'>Subscribe</a>
+</nav>
+</header>
+<main class='content' role='main'>
+<article class='post'>
+<header class='post-header'>
+<h1 class='post-title'>ML&#58; Encoding features and classifier performance (Titanic pt.2)</h1>
+<section class='post-meta'>
+<time class='post-date' datetime='2019-05-11'>
+11 May 2019
+</time>
+on <a href='/tag/ml/'>ML</a>, <a href='/tag/data-science/'>data-science</a>, <a href='/tag/kaggle/'>kaggle</a>, <a href='/tag/dev/'>dev</a>, <a href='/tag/python/'>python</a>, <a href='/tag/titanic/'>titanic</a>
+</section>
+</header>
+<section class='post-content'><p>As we previously mentioned, we will be looking into making our simplest classifier model better. One of the commonly used techniques used is <a href="https://towardsdatascience.com/encoding-categorical-features-21a2651a065c"><strong>categorical feature encoding</strong></a>. We will use one of the simpler and widely used types of encoders for demonstrating how it works and what it does.</p>
+
+<p><a href="https://www.kaggle.com/dansbecker/using-categorical-data-with-one-hot-encoding"><strong>One Hot Encoding</strong></a> - commonly used approach for encoding categorical data.</p>
+
+<p><em>This article is part of <a href="/tag/titanic">Titanic series</a> - a short series on basic ML concepts based on the famous <a href="https://www.kaggle.com/c/titanic">Titanic Kaggle challenge</a></em></p>
+
+<h4 id="basic-usage">basic usage</h4>
+
+<p>We will build on our basic model <a href="/2019/03/14/ml-building-basic-classifier">from part 1</a>, so head there in case you missed it.</p>
+
+<p>Encoding categorical data into <strong>binary columns</strong> is easy with pandas - we can use the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.get_dummies.html"><code>pandas.get_dummies</code></a> method:</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="n">dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">],</span> <span class="n">prefix</span> <span class="o">=</span> <span class="n">column</span><span class="p">)</span>                           
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">dummies</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>We create a dataframe of “dummies” - the categorical columns encoded into binary column with original column name as prefix - and <strong>merge it</strong> into our original dataframe.</p>
+
+<p>To <strong>plug</strong> this <strong>into</strong> our <strong>simple script</strong> we can wrap these two lines in a function to prevent repeating code like so:</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre><span class="n">categorical_features</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Sex"</span><span class="p">,</span> <span class="s">"Pclass"</span><span class="p">]</span>
+<span class="k">def</span> <span class="nf">add_encoded_columns</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column</span><span class="p">):</span>
+    <span class="n">dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">],</span> <span class="n">prefix</span> <span class="o">=</span> <span class="n">column</span><span class="p">)</span>                       
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">dummies</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">categorical_features</span><span class="p">:</span>
+    <span class="n">train</span> <span class="o">=</span> <span class="n">add_encoded_columns</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">feature</span><span class="p">)</span>
+    <span class="n">test</span> <span class="o">=</span> <span class="n">add_encoded_columns</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">feature</span><span class="p">)</span>                                
+</pre></td></tr></tbody></table>
+</div>
+
+<p>This produces <strong>new columns</strong>:
+<img alt="" src="https://res.cloudinary.com/m1n0/image/upload/v1556017298/Screenshot_2019-04-23_at_13.01.03_e5hlge.png" /></p>
+
+<p>Next, when we <strong>choose columns</strong> for our model we replace the original “Sex” and “Pclass” columns with the newly created columns.</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Fare"</span><span class="p">,</span> <span class="s">"Sex_female"</span><span class="p">,</span> <span class="s">"Sex_male"</span><span class="p">,</span> <span class="s">"Pclass_1"</span><span class="p">,</span> <span class="s">"Pclass_2"</span><span class="p">,</span> <span class="s">"Pclass_3"</span><span class="p">,</span> <span class="s">"Age"</span><span class="p">]</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Running the updated scripts produces a <strong>warning message</strong>:</p>
+
+<div class="highlight shell"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre>python one-hot-encoding.py
+/usr/local/var/pyenv/versions/3.6.0/lib/python3.6/site-packages/sklearn/linear_model/logistic.py:758:
+ConvergenceWarning: lbfgs failed to converge. Increase the number of iterations.
+  <span class="s2">"of iterations."</span>, ConvergenceWarning<span class="o">)</span>
+Confusion matrix:
+<span class="o">[[</span>93 17]
+ <span class="o">[</span>19 50]]
+Accuracy: 0.7988826815642458
+</pre></td></tr></tbody></table>
+</div>
+
+<p>The warning specifically tells us how to <strong>fix the issue</strong> - increase the number of iterations:
+<em>(We can see that the training set accuracy is a bit lower here, just below 80% vs the original 81% - a clear confirmation of the warning message)</em></p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="n">classifier</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s">"lbfgs"</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">200</span><span class="p">)</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Doubling the maximum number of iterations does solve the converging issue, but does not improve on the score of our model.</p>
+
+<h4 id="the-problem">the problem</h4>
+
+<p>Using One Hot Encoding does not improve the performance of our classifier, it actually lowers it by ~2%.</p>
+
+<h4 id="the-reason">the reason</h4>
+
+<p>I am not an expert on the issue of variable encoding for ML algorithms, but there are <strong>different aspects</strong> that play their role:</p>
+
+<ol>
+  <li><strong>Cardinality</strong> of data (e.g. 2 sexes vs 1000s of ZIP codes)</li>
+  <li><strong>Model</strong> - linear regression and gradient boost will not take encoded values the same way, some models benefit from encoding, some do not.</li>
+  <li><strong>Encoding type</strong> - numeric, one hot, binary, ordinal…there are many approaches when it comes to encoding categorical features.</li>
+</ol>
+
+<h4 id="what-next">what next</h4>
+
+<p>There are many great resources on the topic of encoding, I recommend reading about the topic a bit and then <strong>experimenting</strong> with different data sets and encoding types. I read these when I encountered lower performance after one-hot-encoding the Titanic data:</p>
+
+<ul>
+  <li><a href="https://towardsdatascience.com/encoding-categorical-features-21a2651a065c">Encoding Categorical Features</a></li>
+  <li><a href="https://towardsdatascience.com/smarter-ways-to-encode-categorical-data-for-machine-learning-part-1-of-3-6dca2f71b159">Smarter Ways to Encode Categorical Data for Machine Learning</a></li>
+  <li><a href="https://medium.com/data-design/visiting-categorical-features-and-encoding-in-decision-trees-53400fa65931">Visiting: Categorical Features and Encoding in Decision Trees</a></li>
+  <li><a href="https://www.kaggle.com/c/zillow-prize-1/discussion/38793">Why one-hot-encoding gives worse scores? (<em>discussion</em>)</a></li>
+</ul>
+
+<p>Keep learning!</p>
+
+<p><em>This article is part of <a href="/tag/titanic">Titanic series</a> - a short series on basic ML concepts based on the famous <a href="https://www.kaggle.com/c/titanic">Titanic Kaggle challenge</a></em></p>
+</section>
+<footer class='post-footer'>
+<figure class='author-image'>
+<a class='img' href='/author/m1n0/' style='background-image: url(https://www.gravatar.com/avatar/3e5e94b17e0afa2a29a1e325f1531759?size=68)'>
+<span class='hidden'>m1n0's Picture</span>
+</a>
+</figure>
+<section class='author'>
+<h4>
+<a href='/author/m1n0/'>m1n0</a>
+</h4>
+<p></p>
+m1n0 is a software engineer passionate about technology, machine learning, music and reading.
+<div class='author-meta'>
+<span class='author-link icon-link'>
+<a href='http://sk.linkedin.com/in/milanlukac'>http://sk.linkedin.com/in/milanlukac</a>
+</span>
+<br>
+<span class='author-link icon-link'>
+<a href='https://github.com/m1n0'>https://github.com/m1n0</a>
+</span>
+</div>
+</section>
+<section class='share'>
+<h4>Share this post</h4>
+<a class='icon-twitter' href='https://twitter.com/share?text=ML&amp;#58; Encoding features and classifier performance (Titanic pt.2)&amp;amp;url=http://justsomegeek.com/2019/05/11/ml-encoding-features-classifier-performance/' onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+<span class='hidden'>Twitter</span>
+</a>
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://justsomegeek.com/2019/05/11/ml-encoding-features-classifier-performance/' onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+<span class='hidden'>Facebook</span>
+</a>
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://justsomegeek.com/2019/05/11/ml-encoding-features-classifier-performance/' onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+<span class='hidden'>Google+</span>
+</a>
+</section>
+<section class='disqus'>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+//<![CDATA[
+                  var disqus_shortname = 'm1n0blog';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</section>
+</footer>
+</article>
+</main>
+
+<footer class='site-footer clearfix'>
+<section class='copyright'>
+<a href='/'>Just Some Geek</a>
+&copy;
+2019
+</section>
+<section class='poweredby'>
+Casper theme powered by
+<a href='https://ghost.org'>Ghost</a>
+</section>
+</footer>
+<script src="/javascripts/application.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-61271241-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

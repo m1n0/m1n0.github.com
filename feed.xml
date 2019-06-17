@@ -23,6 +23,17 @@
  Here is a quick tutorial how to use </summary>
   </entry>
   <entry>
+    <title>ML&amp;#58; Encoding features and classifier performance (Titanic pt.2)</title>
+    <link rel="alternate" href="http://justsomegeek.com/2019/05/11/ml-encoding-features-classifier-performance/"/>
+    <id>http://justsomegeek.com/2019/05/11/ml-encoding-features-classifier-performance/</id>
+    <published>2019-05-11T21:52:00+02:00</published>
+    <updated>2019-06-17T14:50:59+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> As we previously mentioned, we will be looking into making our simplest classifier model better. One of the commonly used techniques used is categorical feature </summary>
+  </entry>
+  <entry>
     <title>Why and how I started learning Python and Machine Learning pt.2</title>
     <link rel="alternate" href="http://justsomegeek.com/2019/04/16/why-and-how-i-started-learning-python-and-machine-learning-pt-2/"/>
     <id>http://justsomegeek.com/2019/04/16/why-and-how-i-started-learning-python-and-machine-learning-pt-2/</id>
@@ -66,17 +77,5 @@ I am storing here what I (currently) use for future reference </summary>
       <name>m1n0</name>
     </author>
     <summary type="html"> Some of us like to customise the user experience of systems and tools we use - changing themes, fonts, ordering etc. This is my current list of things I like </summary>
-  </entry>
-  <entry>
-    <title>Symfony&amp;#58; Roles and Permissions in configuration</title>
-    <link rel="alternate" href="http://justsomegeek.com/2018/04/15/symfony-roles-and-permissions-in-configuration/"/>
-    <id>http://justsomegeek.com/2018/04/15/symfony-roles-and-permissions-in-configuration/</id>
-    <published>2018-04-16T00:12:00+02:00</published>
-    <updated>2019-03-01T11:11:27+01:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> There are different approaches to managing roles and permissions on a project,
-ranging from very simple hardcoded checks to fully adjustable database based solutions </summary>
   </entry>
 </feed>
