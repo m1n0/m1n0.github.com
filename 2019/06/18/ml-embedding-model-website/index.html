@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Just Some Geek: ML&#58; Embedding trained model to a website (Titanic pt.4)</title>
+<meta content='Once we are satisfied with our trained model we might want to embed is somewhere - perhaps brag with it online. We are going to embed our Titanic model' name='description'>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='True' name='HandheldFriendly'>
+<meta content='5E77B5EC9AEF4790B50D44B630FEB118' name='msvalidate.01'>
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+<link href="/images/favicon.ico" rel="icon" type="image/ico" />
+<link href="/stylesheets/application.css" rel="stylesheet" />
+<link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
+</head>
+<body class='post-template'>
+<header class='main-header no-cover post-head'>
+<nav class='main-nav clearfix'>
+<a class='back-button icon-arrow-left' href='/'>Home</a>
+<a class='subscribe-button icon-feed' href='/feed.xml'>Subscribe</a>
+</nav>
+</header>
+<main class='content' role='main'>
+<article class='post'>
+<header class='post-header'>
+<h1 class='post-title'>ML&#58; Embedding trained model to a website (Titanic pt.4)</h1>
+<section class='post-meta'>
+<time class='post-date' datetime='2019-06-18'>
+18 June 2019
+</time>
+on <a href='/tag/ml/'>ML</a>, <a href='/tag/data-science/'>data-science</a>, <a href='/tag/kaggle/'>kaggle</a>, <a href='/tag/dev/'>dev</a>, <a href='/tag/python/'>python</a>, <a href='/tag/titanic/'>titanic</a>
+</section>
+</header>
+<section class='post-content'><p>Once we are satisfied with our trained model we might want to embed is somewhere - perhaps <strong>brag with it online</strong>. We are going to embed our Titanic model to a website with a simple form so that visitors can use it to get estimate of their survival on a virtual Titanic trip.</p>
+
+<p><em>This article is part of <a href="/tag/titanic">Titanic series</a> - a short series on basic ML concepts based on the famous <a href="https://www.kaggle.com/c/titanic">Titanic Kaggle challenge</a></em></p>
+
+<blockquote>
+  <h4 id="tldr">tl;dr</h4>
+  <p>We are embedding a trined model to a website - see the <a href="https://github.com/m1n0/titanicWeb">full source code</a>  for all the details.</p>
+</blockquote>
+
+<h4 id="the-basics">the basics</h4>
+
+<p>We will be using <a href="http://flask.pocoo.org/"><strong>Flask</strong></a> to build a simple website. I will assume you know how to use it and how to run/deploy it and not describe everything concerning that part in detail.</p>
+
+<h4 id="the-model">the model</h4>
+
+<p>The main task to address is <strong>getting our trained model ready</strong>. We will utilize the <a href="https://docs.python.org/3/library/pickle.html">Pickle</a> module in Python standard library:</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="s">"classifier.model"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">))</span>                                           
+</pre></td></tr></tbody></table>
+</div>
+
+<p>To reuse the model in our web app we will simply load it and use it:</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="n">model</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>                                          
+<span class="o">...</span>
+<span class="n">probability</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">form_data</span><span class="p">)</span>                                           
+</pre></td></tr></tbody></table>
+</div>
+
+<p>The <a href="https://kite.com/python/docs/sklearn.linear_model.logistic.LogisticRegression.predict_proba"><code>predict_proba</code></a> method returns a numpy array, in our case with one element, which is another array containing probability of 0 (not surviving) and 1 (surviving).</p>
+
+<h4 id="the-form">the form</h4>
+
+<p>We will be using a simple form to collect user data, I chose <a href="https://wtforms.readthedocs.io/en/stable/">WTForms</a> library for this use. Defining form with it is simple, e.g. this is a simple definition for a required <code>Sex</code> field:</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre><span class="n">sex</span> <span class="o">=</span> <span class="n">SelectField</span><span class="p">(</span>
+    <span class="s">"Sex:"</span><span class="p">,</span>
+    <span class="n">choices</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s">"1"</span><span class="p">,</span> <span class="s">"Male"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">"0"</span><span class="p">,</span> <span class="s">"Female"</span><span class="p">)</span>
+    <span class="p">],</span>
+    <span class="n">validators</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">validators</span><span class="o">.</span><span class="n">InputRequired</span><span class="p">()</span>                                                      
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>See the <a href="https://github.com/m1n0/titanicWeb/blob/master/form/titanic_form.py">full form definition here</a>.</p>
+
+<h4 id="the-data-model">the data model</h4>
+
+<p>I like to pass data around in <strong>well formed objects when appropriate</strong>, so I defined a simple model to represent our form data:</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">PassengerData</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">sex</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">age</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">Pclass</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">ticket_strategy</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">SibSp</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">ParCh</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">embarked</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sex</span> <span class="o">=</span> <span class="n">sex</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Pclass</span> <span class="o">=</span> <span class="n">Pclass</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ticket_strategy</span> <span class="o">=</span> <span class="n">ticket_strategy</span>                                                  
+        <span class="bp">self</span><span class="o">.</span><span class="n">SibSp</span> <span class="o">=</span> <span class="n">SibSp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ParCh</span> <span class="o">=</span> <span class="n">ParCh</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embarked</span> <span class="o">=</span> <span class="n">embarked</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<h4 id="the-prediction">the prediction</h4>
+
+<p>The <strong>most important thing</strong> is <strong>preparing data</strong> and doing the <strong>prediction</strong>. The model I used is <a href="https://github.com/m1n0/machine-learning/blob/master/kaggle/titanic/titanic.py">slightly more complex</a> than the one we did in the previous part, but the main idea remains the same - we need to <strong>feed user submitted data</strong> to the model predictor - and therefore we need to <strong>preprocess</strong> the data. Here is a method I used to do so:</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55</pre></td><td class="code"><pre><span class="k">def</span> <span class="nf">__preprocess</span><span class="p">(</span><span class="n">passenger_data</span><span class="p">:</span> <span class="n">PassengerData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="n">age</span> <span class="o">=</span> <span class="n">passenger_data</span><span class="o">.</span><span class="n">age</span>
+        <span class="n">sex</span> <span class="o">=</span> <span class="n">passenger_data</span><span class="o">.</span><span class="n">sex</span>
+        <span class="n">embarked</span> <span class="o">=</span> <span class="n">passenger_data</span><span class="o">.</span><span class="n">embarked</span>
+        <span class="n">Pclass</span> <span class="o">=</span> <span class="n">passenger_data</span><span class="o">.</span><span class="n">Pclass</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">passenger_data</span><span class="o">.</span><span class="n">title</span>
+
+        <span class="c"># Set up Fare value based on ticket buying strategy (values are hardcoded here and come from data exploration).</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">passenger_data</span><span class="o">.</span><span class="n">ticket_strategy</span>
+        <span class="k">if</span> <span class="n">Pclass</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">fare</span> <span class="o">=</span> <span class="mi">30</span>
+            <span class="k">elif</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">fare</span> <span class="o">=</span> <span class="mi">84</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">fare</span> <span class="o">=</span> <span class="mi">428</span>
+        <span class="k">if</span> <span class="n">Pclass</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">fare</span> <span class="o">=</span> <span class="mi">13</span>
+            <span class="k">elif</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">fare</span> <span class="o">=</span> <span class="mi">20</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">fare</span> <span class="o">=</span> <span class="mi">53</span>
+        <span class="k">if</span> <span class="n">Pclass</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">fare</span> <span class="o">=</span> <span class="mi">8</span>
+            <span class="k">elif</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">fare</span> <span class="o">=</span> <span class="mi">14</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">fare</span> <span class="o">=</span> <span class="mi">55</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">"Fare"</span><span class="p">:</span> <span class="n">fare</span><span class="p">,</span>
+            <span class="s">"AgeCategory_Infant"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">),</span>
+            <span class="s">"AgeCategory_Child"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">12</span><span class="p">),</span>
+            <span class="s">"AgeCategory_Teenager"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">12</span> <span class="ow">and</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">18</span><span class="p">),</span>
+            <span class="s">"AgeCategory_YoungAdult"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">18</span> <span class="ow">and</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">35</span><span class="p">),</span>
+            <span class="s">"AgeCategory_Adult"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">35</span> <span class="ow">and</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">60</span><span class="p">),</span>
+            <span class="s">"AgeCategory_Senior"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">60</span> <span class="ow">and</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">),</span>
+            <span class="s">"Sex_female"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">sex</span> <span class="o">==</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="s">"Sex_male"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">sex</span> <span class="o">==</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s">"Embarked_C"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">embarked</span> <span class="o">==</span> <span class="s">"C"</span><span class="p">),</span>
+            <span class="s">"Embarked_Q"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">embarked</span> <span class="o">==</span> <span class="s">"Q"</span><span class="p">),</span>
+            <span class="s">"Embarked_S"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">embarked</span> <span class="o">==</span> <span class="s">"S"</span><span class="p">),</span>
+            <span class="s">"Pclass_1"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">Pclass</span> <span class="o">==</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s">"Pclass_2"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">Pclass</span> <span class="o">==</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="s">"Pclass_3"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">Pclass</span> <span class="o">==</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="s">"FamilySize"</span><span class="p">:</span> <span class="n">passenger_data</span><span class="o">.</span><span class="n">SibSp</span> <span class="o">+</span> <span class="n">passenger_data</span><span class="o">.</span><span class="n">ParCh</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s">"Title_Mr"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">title</span> <span class="o">==</span> <span class="s">"Mr"</span><span class="p">),</span>
+            <span class="s">"Title_Mrs"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">title</span> <span class="o">==</span> <span class="s">"Mrs"</span><span class="p">),</span>
+            <span class="s">"Title_Miss"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">title</span> <span class="o">==</span> <span class="s">"Miss"</span><span class="p">),</span>
+            <span class="s">"Title_Master"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">title</span> <span class="o">==</span> <span class="s">"Master"</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>The basic idea is to <strong>match data processing</strong> in the model itself, so that the prediction model can accurately predict the outcome.</p>
+
+<p>And then <strong>the prediction itself</strong> - here we load the model and feed the preprocessed data to the model. It returns the probability of <code>1</code> (survived):</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">passenger_data</span><span class="p">:</span> <span class="n">PassengerData</span><span class="p">):</span>
+        <span class="n">dirname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="s">'./model.pkl'</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+        <span class="n">probability</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">Predictor</span><span class="o">.</span><span class="n">__preprocess</span><span class="p">(</span><span class="n">passenger_data</span><span class="p">))[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">probability</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<h4 id="gluing-it-together">gluing it together</h4>
+
+<p>We will build a <strong>simple Flask app</strong> to use the form and the predictor to predict the results. There is a template and some color-coding to make it look presentable involved.</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></td><td class="code"><pre><span class="kn">from</span> <span class="nn">form.titanic_form</span> <span class="kn">import</span> <span class="n">TitanicForm</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span>
+<span class="kn">from</span> <span class="nn">modules.prediction.predictor</span> <span class="kn">import</span> <span class="n">Predictor</span>
+<span class="kn">from</span> <span class="nn">builder.passenger_data_builder</span> <span class="kn">import</span> <span class="n">PassengerDataBuilder</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="c"># Home page</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"GET"</span><span class="p">,</span> <span class="s">"POST"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">TitanicForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+    <span class="n">prediction</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">"POST"</span> <span class="ow">and</span> <span class="n">form</span><span class="o">.</span><span class="n">validate</span><span class="p">():</span>
+        <span class="n">passengerData</span> <span class="o">=</span> <span class="n">PassengerDataBuilder</span><span class="o">.</span><span class="n">build_from_form_data</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Predictor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">passengerData</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">prediction</span> <span class="o">&gt;</span> <span class="mi">70</span><span class="p">:</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="s">"green"</span>
+        <span class="k">elif</span> <span class="n">prediction</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">:</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="s">"yellow"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="s">"red"</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
+        <span class="s">"index.html"</span><span class="p">,</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">form</span><span class="p">,</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">prediction</span><span class="p">,</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="n">status</span>
+    <span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span> <span class="o">=</span> <span class="s">"0.0.0.0"</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="mi">8888</span><span class="p">,</span> <span class="n">debug</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<h4 id="done">done</h4>
+
+<p>The app is <strong>ready</strong> to be run/deployed wherever you want, I host mine on <a href="https://heroku.com">Heroku</a> just because it’s free and convenient.</p>
+
+<blockquote>
+  <p>See the <a href="https://github.com/m1n0/titanicWeb">full source code</a> for all the details.</p>
+
+  <p><em>This article is part of <a href="/tag/titanic">Titanic series</a> - a short series on basic ML concepts based on the famous <a href="https://www.kaggle.com/c/titanic">Titanic Kaggle challenge</a></em></p>
+</blockquote>
+</section>
+<footer class='post-footer'>
+<figure class='author-image'>
+<a class='img' href='/author/m1n0/' style='background-image: url(https://www.gravatar.com/avatar/3e5e94b17e0afa2a29a1e325f1531759?size=68)'>
+<span class='hidden'>m1n0's Picture</span>
+</a>
+</figure>
+<section class='author'>
+<h4>
+<a href='/author/m1n0/'>m1n0</a>
+</h4>
+<p></p>
+m1n0 is a software engineer passionate about technology, machine learning, music and reading.
+<div class='author-meta'>
+<span class='author-link icon-link'>
+<a href='http://sk.linkedin.com/in/milanlukac'>http://sk.linkedin.com/in/milanlukac</a>
+</span>
+<br>
+<span class='author-link icon-link'>
+<a href='https://github.com/m1n0'>https://github.com/m1n0</a>
+</span>
+</div>
+</section>
+<section class='share'>
+<h4>Share this post</h4>
+<a class='icon-twitter' href='https://twitter.com/share?text=ML&amp;#58; Embedding trained model to a website (Titanic pt.4)&amp;amp;url=http://justsomegeek.com/2019/06/18/ml-embedding-model-website/' onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+<span class='hidden'>Twitter</span>
+</a>
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://justsomegeek.com/2019/06/18/ml-embedding-model-website/' onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+<span class='hidden'>Facebook</span>
+</a>
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://justsomegeek.com/2019/06/18/ml-embedding-model-website/' onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+<span class='hidden'>Google+</span>
+</a>
+</section>
+<section class='disqus'>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+//<![CDATA[
+                  var disqus_shortname = 'm1n0blog';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</section>
+</footer>
+</article>
+</main>
+
+<footer class='site-footer clearfix'>
+<section class='copyright'>
+<a href='/'>Just Some Geek</a>
+&copy;
+2019
+</section>
+<section class='poweredby'>
+Casper theme powered by
+<a href='https://ghost.org'>Ghost</a>
+</section>
+</footer>
+<script src="/javascripts/application.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-61271241-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

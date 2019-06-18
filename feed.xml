@@ -5,10 +5,21 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/feed.xml" rel="self"/>
-  <updated>2019-06-16T22:02:00+02:00</updated>
+  <updated>2019-06-18T12:43:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>ML&amp;#58; Embedding trained model to a website (Titanic pt.4)</title>
+    <link rel="alternate" href="http://justsomegeek.com/2019/06/18/ml-embedding-model-website/"/>
+    <id>http://justsomegeek.com/2019/06/18/ml-embedding-model-website/</id>
+    <published>2019-06-18T12:43:00+02:00</published>
+    <updated>2019-06-18T14:35:43+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Once we are satisfied with our trained model we might want to embed is somewhere - perhaps brag with it online. We are going to embed our Titanic model to a </summary>
+  </entry>
   <entry>
     <title>ML&amp;#58; Feature engineering (Titanic pt.3)</title>
     <link rel="alternate" href="http://justsomegeek.com/2019/06/16/ml-feature-engineering/"/>
@@ -65,17 +76,5 @@
       <name>m1n0</name>
     </author>
     <summary type="html"> Learning Machine Learning is an intimidating task - there is simply way too much to learn, too many tools, technologies and techniques to grasp. On the other </summary>
-  </entry>
-  <entry>
-    <title>Docker&amp;#58; cleanup unused resources</title>
-    <link rel="alternate" href="http://justsomegeek.com/2018/10/04/docker-cleanup-unused-resources/"/>
-    <id>http://justsomegeek.com/2018/10/04/docker-cleanup-unused-resources/</id>
-    <published>2018-10-05T00:26:00+02:00</published>
-    <updated>2019-02-28T23:49:17+01:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> Docker likes to eat up disk space, so having some scripts handy for occasional cleanup is useful. 
-I am storing here what I (currently) use for future reference </summary>
   </entry>
 </feed>
