@@ -5,10 +5,21 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/titanic/feed.xml" rel="self"/>
-  <updated>2019-06-14T10:37:00+02:00</updated>
+  <updated>2019-06-16T22:02:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>ML&amp;#58; Feature engineering (Titanic pt.3)</title>
+    <link rel="alternate" href="http://justsomegeek.com/2019/06/16/ml-feature-engineering/"/>
+    <id>http://justsomegeek.com/2019/06/16/ml-feature-engineering/</id>
+    <published>2019-06-16T22:02:00+02:00</published>
+    <updated>2019-06-18T10:37:47+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Another technique we previously mentioned that can be used to try making our predictions better is Feature Engineering. In todays article we will take a look </summary>
+  </entry>
   <entry>
     <title>ML&amp;#58; Encoding features and classifier performance (Titanic pt.2)</title>
     <link rel="alternate" href="http://justsomegeek.com/2019/05/11/ml-encoding-features-classifier-performance/"/>

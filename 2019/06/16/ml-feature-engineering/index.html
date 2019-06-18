@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Just Some Geek: ML&#58; Feature engineering (Titanic pt.3)</title>
+<meta content='Another technique we previously mentioned that can be used to try making our predictions better is Feature Engineering. In todays article we will take' name='description'>
+<meta charset='utf-8'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='True' name='HandheldFriendly'>
+<meta content='5E77B5EC9AEF4790B50D44B630FEB118' name='msvalidate.01'>
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+<link href="/images/favicon.ico" rel="icon" type="image/ico" />
+<link href="/stylesheets/application.css" rel="stylesheet" />
+<link href='//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400' rel='stylesheet' type='text/css'>
+</head>
+<body class='post-template'>
+<header class='main-header no-cover post-head'>
+<nav class='main-nav clearfix'>
+<a class='back-button icon-arrow-left' href='/'>Home</a>
+<a class='subscribe-button icon-feed' href='/feed.xml'>Subscribe</a>
+</nav>
+</header>
+<main class='content' role='main'>
+<article class='post'>
+<header class='post-header'>
+<h1 class='post-title'>ML&#58; Feature engineering (Titanic pt.3)</h1>
+<section class='post-meta'>
+<time class='post-date' datetime='2019-06-16'>
+16 June 2019
+</time>
+on <a href='/tag/ml/'>ML</a>, <a href='/tag/data-science/'>data-science</a>, <a href='/tag/kaggle/'>kaggle</a>, <a href='/tag/dev/'>dev</a>, <a href='/tag/python/'>python</a>, <a href='/tag/titanic/'>titanic</a>
+</section>
+</header>
+<section class='post-content'><p>Another technique we <a href="/2019/03/14/ml-building-basic-classifier#improvements">previously mentioned</a> that can be used to try making our predictions better is <a href="https://www.kdnuggets.com/2018/12/feature-engineering-explained.html"><strong>Feature Engineering</strong></a>. In todays article we will take a look on how we can apply it to the Titanic dataset.</p>
+
+<p><em>This article is part of <a href="/tag/titanic">Titanic series</a> - a short series on basic ML concepts based on the famous <a href="https://www.kaggle.com/c/titanic">Titanic Kaggle challenge</a></em></p>
+
+<p>We will build on our basic model <a href="/2019/03/14/ml-building-basic-classifier">from part 1</a>, so head there in case you missed it.</p>
+
+<h4 id="age">age</h4>
+
+<p>We will start with a <strong>basic</strong> example - creating a new feature from the Age column. Our model might benefit from changing the Age data from <a href="https://towardsdatascience.com/data-types-in-statistics-347e152e8bee">continuous numerical data type to ordinal categorical</a>.</p>
+
+<p>To do so, we will fill empty age rows with <code>-0.5</code> to indicate such special case and we will define cut points and label names to take Age column data and create a new categorical column based on it:</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td><td class="code"><pre><span class="n">cut_points</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="n">label_names</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Missing"</span><span class="p">,</span> <span class="s">"Infant"</span><span class="p">,</span> <span class="s">"Child"</span><span class="p">,</span> <span class="s">"Teenager"</span><span class="p">,</span> <span class="s">"YoungAdult"</span><span class="p">,</span> <span class="s">"Adult"</span><span class="p">,</span> <span class="s">"Senior"</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">process_age</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cut_points</span><span class="p">,</span> <span class="n">label_names</span><span class="p">):</span>
+    <span class="n">df</span><span class="p">[</span><span class="s">"Age"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">"Age"</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s">"AgeCategory"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">"Age"</span><span class="p">],</span> <span class="n">cut_points</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">label_names</span><span class="p">)</span>               
+
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="n">train</span> <span class="o">=</span> <span class="n">process_age</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">cut_points</span><span class="p">,</span> <span class="n">label_names</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">process_age</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">cut_points</span><span class="p">,</span> <span class="n">label_names</span><span class="p">)</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>This will result with a <strong>new column “AgeCategory”</strong> with respective label strings in it. To use it in our model we need to encode it to numbers.</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="n">train</span><span class="p">[</span><span class="s">"AgeCategory"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s">"AgeCategory"</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>                    
+<span class="n">test</span><span class="p">[</span><span class="s">"AgeCategory"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s">"AgeCategory"</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>                                  
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Using this new categorical feature is simple, we just change the column name to be used for training our model.</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Fare"</span><span class="p">,</span> <span class="s">"Sex"</span><span class="p">,</span> <span class="s">"Pclass"</span><span class="p">,</span> <span class="s">"AgeCategory"</span><span class="p">]</span>                                              
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Training the model this way <strong>does not improve</strong> its performance, on the contrary, it <strong>lowers</strong> it by ~3%, it seems like the <strong>lost detail</strong> contained in continual numerical data hurts our logistic classifier. We could change and/or tweak the classifier, but we will keep it as it is to make sure we can compare the results easily.</p>
+
+<p>We will discard the <code>AgeCategory</code> feature and fall back to using the original <code>Age</code> feature.</p>
+
+<h4 id="family-size">family size</h4>
+
+<p>Another, even simpler example is creating a completely <strong>new feature</strong> based on the available data. Adding features Sibling/Spouse count and Parent/Children count and adding 1 (counting “me” as well) results in Family Size count. We can try using this in our model to see if there is any correlation with the result.</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="n">train</span><span class="p">[</span><span class="s">"FamilySize"</span><span class="p">]</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s">"SibSp"</span><span class="p">]</span> <span class="o">+</span> <span class="n">train</span><span class="p">[</span><span class="s">"Parch"</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">test</span><span class="p">[</span><span class="s">"FamilySize"</span><span class="p">]</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s">"SibSp"</span><span class="p">]</span> <span class="o">+</span> <span class="n">test</span><span class="p">[</span><span class="s">"Parch"</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Using this feature in our model does not change its performance at all - but we may keep it for future and perhaps some other model will benefit from it.</p>
+
+<h4 id="title">title</h4>
+
+<p>Next example of feature engineering is <strong>extracting title</strong> from the <code>Name</code> feature. To do so, we will define a list of titles to be extracted and create a new feature out of them.</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td><td class="code"><pre><span class="k">def</span> <span class="nf">titles_in_name</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">titles</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">titles</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">title</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="n">title_list</span><span class="o">=</span><span class="p">[</span><span class="s">"Mrs"</span><span class="p">,</span> <span class="s">"Mr"</span><span class="p">,</span> <span class="s">"Master"</span><span class="p">,</span> <span class="s">"Miss"</span><span class="p">,</span> <span class="s">"Major"</span><span class="p">,</span> <span class="s">"Rev"</span><span class="p">,</span>
+            <span class="s">"Dr"</span><span class="p">,</span> <span class="s">"Ms"</span><span class="p">,</span> <span class="s">"Mlle"</span><span class="p">,</span><span class="s">"Col"</span><span class="p">,</span> <span class="s">"Capt"</span><span class="p">,</span> <span class="s">"Mme"</span><span class="p">,</span> <span class="s">"Countess"</span><span class="p">,</span>
+            <span class="s">"Don"</span><span class="p">,</span> <span class="s">"Jonkheer"</span><span class="p">]</span>
+<span class="n">train</span><span class="p">[</span><span class="s">"Title"</span><span class="p">]</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s">"Name"</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">titles_in_name</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">title_list</span><span class="p">))</span>
+<span class="n">test</span><span class="p">[</span><span class="s">"Title"</span><span class="p">]</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s">"Name"</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">titles_in_name</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">title_list</span><span class="p">))</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>To use the extracted data we will categorize them, as some of the titles in the dataset <strong>represent similar or even same concept</strong> (e.g. in different languages, a bit of online search helped with this info).</p>
+
+<div class="highlight python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></td><td class="code"><pre><span class="k">def</span> <span class="nf">categorize_titles</span><span class="p">(</span><span class="n">person</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">person</span><span class="p">[</span><span class="s">"Title"</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">title</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"Don"</span><span class="p">,</span> <span class="s">"Major"</span><span class="p">,</span> <span class="s">"Capt"</span><span class="p">,</span> <span class="s">"Jonkheer"</span><span class="p">,</span> <span class="s">"Rev"</span><span class="p">,</span> <span class="s">"Col"</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="s">"Mr"</span>
+    <span class="k">elif</span> <span class="n">title</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"Countess"</span><span class="p">,</span> <span class="s">"Mme"</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="s">"Mrs"</span>
+    <span class="k">elif</span> <span class="n">title</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"Mlle"</span><span class="p">,</span> <span class="s">"Ms"</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="s">"Miss"</span>
+    <span class="k">elif</span> <span class="n">title</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"Dr"</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">person</span><span class="p">[</span><span class="s">"Sex"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"Male"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">"Mr"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">"Mrs"</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">title</span>
+
+<span class="n">train</span><span class="p">[</span><span class="s">"Title"</span><span class="p">]</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">categorize_titles</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">test</span><span class="p">[</span><span class="s">"Title"</span><span class="p">]</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">categorize_titles</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">train</span><span class="p">[</span><span class="s">"Title"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="s">"Title"</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">test</span><span class="p">[</span><span class="s">"Title"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s">"Title"</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Using this new feature <strong>bumps the performance</strong> of our model slightly, by approximately 1%.</p>
+
+<p><em>Note: Using the Title feature without using the FamilySize feature actually lowers the performance of the model.</em></p>
+
+<h4 id="conclusion">conclusion</h4>
+
+<p>Feature engineering is not simple, but looking at the data thoroughly can result is improved results. It can be used to <strong>extract information</strong> from available data, <strong>add more insight</strong> into the dataset by human intervention (e.g. categorizing “Don” and “Major” as “Mr”) and even <strong>reduce the number of features</strong> to improve the training performance of the model.</p>
+
+<p><em>As always, the source code is <a href="https://github.com/m1n0/machine-learning/blob/master/kaggle/titanic/feature-engineering.py">available on github</a>.</em></p>
+
+<p>Keep learning!</p>
+
+<p><em>This article is part of <a href="/tag/titanic">Titanic series</a> - a short series on basic ML concepts based on the famous <a href="https://www.kaggle.com/c/titanic">Titanic Kaggle challenge</a></em></p>
+</section>
+<footer class='post-footer'>
+<figure class='author-image'>
+<a class='img' href='/author/m1n0/' style='background-image: url(https://www.gravatar.com/avatar/3e5e94b17e0afa2a29a1e325f1531759?size=68)'>
+<span class='hidden'>m1n0's Picture</span>
+</a>
+</figure>
+<section class='author'>
+<h4>
+<a href='/author/m1n0/'>m1n0</a>
+</h4>
+<p></p>
+m1n0 is a software engineer passionate about technology, machine learning, music and reading.
+<div class='author-meta'>
+<span class='author-link icon-link'>
+<a href='http://sk.linkedin.com/in/milanlukac'>http://sk.linkedin.com/in/milanlukac</a>
+</span>
+<br>
+<span class='author-link icon-link'>
+<a href='https://github.com/m1n0'>https://github.com/m1n0</a>
+</span>
+</div>
+</section>
+<section class='share'>
+<h4>Share this post</h4>
+<a class='icon-twitter' href='https://twitter.com/share?text=ML&amp;#58; Feature engineering (Titanic pt.3)&amp;amp;url=http://justsomegeek.com/2019/06/16/ml-feature-engineering/' onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+<span class='hidden'>Twitter</span>
+</a>
+<a class='icon-facebook' href='https://www.facebook.com/sharer/sharer.php?u=http://justsomegeek.com/2019/06/16/ml-feature-engineering/' onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+<span class='hidden'>Facebook</span>
+</a>
+<a class='icon-google-plus' href='https://plus.google.com/share?url=http://justsomegeek.com/2019/06/16/ml-feature-engineering/' onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+<span class='hidden'>Google+</span>
+</a>
+</section>
+<section class='disqus'>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+//<![CDATA[
+                  var disqus_shortname = 'm1n0blog';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</section>
+</footer>
+</article>
+</main>
+
+<footer class='site-footer clearfix'>
+<section class='copyright'>
+<a href='/'>Just Some Geek</a>
+&copy;
+2019
+</section>
+<section class='poweredby'>
+Casper theme powered by
+<a href='https://ghost.org'>Ghost</a>
+</section>
+</footer>
+<script src="/javascripts/application.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-61271241-1"]);
+  _gaq.push(["_trackPageview"]);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

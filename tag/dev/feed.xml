@@ -5,10 +5,21 @@
   <id>http://justsomegeek.com</id>
   <link href="http://justsomegeek.com"/>
   <link href="http://justsomegeek.com/tag/dev/feed.xml" rel="self"/>
-  <updated>2019-06-14T10:37:00+02:00</updated>
+  <updated>2019-06-16T22:02:00+02:00</updated>
   <author>
     <name>m1n0</name>
   </author>
+  <entry>
+    <title>ML&amp;#58; Feature engineering (Titanic pt.3)</title>
+    <link rel="alternate" href="http://justsomegeek.com/2019/06/16/ml-feature-engineering/"/>
+    <id>http://justsomegeek.com/2019/06/16/ml-feature-engineering/</id>
+    <published>2019-06-16T22:02:00+02:00</published>
+    <updated>2019-06-18T10:37:47+02:00</updated>
+    <author>
+      <name>m1n0</name>
+    </author>
+    <summary type="html"> Another technique we previously mentioned that can be used to try making our predictions better is Feature Engineering. In todays article we will take a look </summary>
+  </entry>
   <entry>
     <title>ML&amp;#58; Encoding features and classifier performance (Titanic pt.2)</title>
     <link rel="alternate" href="http://justsomegeek.com/2019/05/11/ml-encoding-features-classifier-performance/"/>
@@ -67,19 +78,5 @@ ranging from very simple hardcoded checks to fully adjustable database based sol
 
  Python and ML together? PHP web development is my current day job, but I have
 been looking into expanding my horizons for some time now. I would not dare </summary>
-  </entry>
-  <entry>
-    <title>Empty GIT commit</title>
-    <link rel="alternate" href="http://justsomegeek.com/2017/11/09/empty-git-commit/"/>
-    <id>http://justsomegeek.com/2017/11/09/empty-git-commit/</id>
-    <published>2017-11-09T10:53:00+01:00</published>
-    <updated>2017-11-10T06:26:41+01:00</updated>
-    <author>
-      <name>m1n0</name>
-    </author>
-    <summary type="html"> Empty commits in git make sense is some scenarios, you might use them to trigger
-workflows, builds, test commit hooks etc… 
-
- To create an empty commit, simply </summary>
   </entry>
 </feed>
