@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/milanlukac
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://justsomegeek.com
+  * I am milanlukac (https://keybase.io/milanlukac) on keybase.
+  * I have a public key ASAwLA-Fs_J7XXSaTZ3itqb0v8d9E1v4iEBNxp-F2i5JRwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120302c0f85b3f27b5d749a4d9de2b6a6f4bfc77d135bf888404dc69f85da2e49470a",
+      "host": "keybase.io",
+      "kid": "0120302c0f85b3f27b5d749a4d9de2b6a6f4bfc77d135bf888404dc69f85da2e49470a",
+      "uid": "4289c058253e0ce62e4a87c364d62d19",
+      "username": "milanlukac"
+    },
+    "merkle_root": {
+      "ctime": 1582114265,
+      "hash": "543c6bd1d9f488874617864fb4bc179bfa6a9be098826964b14ce7112a706458a466d2a6de2b534a73f9e67919abac385f5e2d3f38cb977db0a00ff3e0b87929",
+      "hash_meta": "c140c561419df5ba186e370cd465baf38d34cd2e8d4d9facd0d26d9012d0827e",
+      "seqno": 14647350
+    },
+    "service": {
+      "entropy": "f7V6Zrl0MY+i/DnFGwIpA3/K",
+      "hostname": "justsomegeek.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.2.0"
+  },
+  "ctime": 1582114318,
+  "expire_in": 504576000,
+  "prev": "fe7ff7264cae88996f44ba3807cef38021fb226dad5381b380354c61c3ebfaa7",
+  "seqno": 28,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgMCwPhbPye110mk2d4ram9L/HfRNb+IhATcafhdouSUcKp3BheWxvYWTESpcCHMQg/n/3JkyuiJlvRLo4B87zgCH7Im2tU4GzgDVMYcPr+qfEIBhjRvWSmgWLXsNZ1OjnxsHZadc8euTG9X0xpYIDJdYJAgHCo3NpZ8RAMKdxh20sp6QphNfhqJe6/QGBTf7ZR5dHqeJgU5i3AuGA9eMm11Kxw6Om+YWZmUecx/U2NiFdSRMQAJBluCrRAKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIOgGq30VTNnVVYT0ukQSHvBktf8g5zopeTjMyY5e3I4oo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/milanlukac
+
+==================================================================
